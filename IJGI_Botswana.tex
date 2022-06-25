@@ -144,11 +144,39 @@ Using the same approach of scripting presented above, all the other climate maps
     This paper accepts the Palmer Drought Severity Index (PDSI) for visualizing the strength of drought over Botswana. Besides the PDSI, there are other types of indices used for meteorological and climate research, for instance: Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) to mention a few (Byakatonda et al. 2018b, 2018c). The PDSI was chosen since this is a reliable and reputable index known since its development by Palmer in 1965 (Palmer, 1965) based on a measurement of dryness based on recent precipitation and temperature. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Results}
+\section{Results and Discussion}
 
-The text continues here. 
+How the temperature extremes are distributed over Botswana (Fig. 2 and 3) is important to understand the distribution of PDSI values (Fig. 12). So, as can be seen in Fig. 2 (Tmin in Botswana in 2018), the minimal values over the country are recorded in the SE and S regions of the country in the proximity of Lobatse city and the Limpopo river valley where the values are lower and reach +16.5C and further to the east (region of South Africa). 
 
-\subsection{Figures, Tables and Schemes}
+The maximal temperature (Tmax) in Botswana in 2018 is shown schematically in Fig. 3. An important aspect of the Tmax distribution over Botswana depicted in Fig. 3 is that the highest values of the Tmax are in the southern region of Kalahari (up to +38 C, bright red color in Fig. 3). This is partially caused by the typical hydrological and meteorological process of the evaporation due to the a lack of water as that all of the absorbed light goes into raising the surface temperature in the Kalahari Desert.
+	
+The precipitation map in this data (Fig. 4) exhibited some degree of spatial dependent distribution of rainfalls generally increasing to the north. However, the isolines demonstrate the rather wedge-shaped sharp decrease of values reaching maximum between the 21 and 22 E, that is, in the center of Kalahari Desert. The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac and red colors in Fig. 4). the Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. Study of soil properties is important for environmental research (Lemenkov and Lemenkova, 2021a, 2021b). Variations in soil moisture (Fig. 5) show the least moisture in the Kalahari Desert (0–1 mm/m, i.e. extreme dry, yellow color in Fig. 5) with slight increase in the NW and selected central districts of Kalahari (1-2 mm/m, beige).  	
+
+Further gradual increase in soil moisture (2 to 5 mm/m, green colors) is notable in the NW region of the country, in the Okawanga Delta and on border with Namibia. Moderate variations (up to 10 mm/m) are also notable around the Sehithwa village (Fig. 5). The NW bias in the trend of the data distribution is notable in the norther of the country due to precipitation increase in the north together with the temperature decrease associated with climate effects in Botswana and clear influence of the Kalahari Desert in southern regions of the country. 
+	
+The potential evapotranspiration (PET) (Fig. 6) values are visualized continuously extracted for Botswana and ranging from minimum at 133 mm to a maximum at 250 mm, mean at 196.048 mm, standard deviation at 26.166 mm. The maximal is clearly visible in the lower region of Kalahari region (over 240 mm). 
+
+Using GDAL inspection by 'gdalinfo', the actual evapotranspiration (AET) in Botswana (Fig. 7) was analyzed and the data variations is shown: Minimum at 13 mm, Maximum at 148 mm, Mean at 73.225 mm, StdDev at 28.295 mm. Here the minimal values correspond to the Kalahari Desert region in southern Botswana (values 0 to 50 mm). The gradients of isolines decrease (become less curved) in the northward direction to Okawanga Delta where the values reach up to 120 mm.
+
+The curves of the fields of the downward surface shortwave radiation in Fig. 8 reflect the total amount of shortwave radiation, both direct and diffuse that reaches the Earth's surface over the area in Botswana. The overall increase in the values can be noticed as increasing towards the southern region of Kalahari where the values reach up to 326 Wm-2 (bright red colors in Fig. 8) from the lowest in the northern region with the minimal values of 234 Wm-2 (light beige colors in Fig. 8). The vapor pressure (Fig. 9) and vapor pressure deficit (Fig. 10) correlate in general trend increasing towards the southern regions of Kalahari Desert and reaching values of 2.56 atm from the minimal of 1.17 atm in the norther of the country for vapor pressure. 
+
+As shown in Fig. 10 (Vapor Pressure Deficit, VPD of Botswana), there is a general trend for vapor pressure to be higher in the SW (Kalahari Desert with the highest values of 3.3, bright yellow color) and lower in the NE of Botswana (up to 1.4, purple colors in Fig. 10). The VPD shows the deficit between the moisture in the air and the amount of moisture the air can contain when saturated. 
+	
+The measured wind speed (Fig. 11) reaches the maximal values in the area of Jwaneng eastward of Kalahari. The inspection of data gives the following data range: minimum at 1.8 m/s, maximum at 3.4 m/s, mean at 2.587 m/s, and standard deviation of values at 0.352m/s (Fig. 11).
+
+In general, the PDSI drought levels in Botswana in 2018 (Fig. 12) show stepwise variation of index with roughly seven areas: 1) -3.7 to -2.2. (extreme drought); 2) -2.2 to -0.8 (strong drought, southern Kalahari); 3) -0.8 to 0.7 (significant drought): central Kalahari; 4) 0.7 to 2.1 (moderate drought); 5) 2.1 to 3.5 (lesser drought); 6) 3.5 to 4.9 (low drought); 7) 4.9 to 6.4 (least drought), Fig. 12. 
+
+The zero level is highlighted by the thick white isoline for the convenience of the classification (Fig. 12). One possibility to explain the PDSI values (Fig. 12) showing the minimal values (i.e., extreme drought with values -2.2 to -3.8) is that the minimal temperatures are recorded as the deepest around the Lobaste in the south of the country (Fig. 2) which also corresponds to the low precipitation level in this region (Fig. 4, 35 to 61 mm, green colors: region of Jwaneng, Gaborone, area southwards of Kalahari). 
+
+In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest with values exceeding 318 Wm-2 (compare Fig. 12 with Fig. 8). The next (lesser) level of drought severity with values of -0.8 to -2.2 (light plum color in Fig. 12) was then examined with map of the vapor pressure having consecutively decreasing values southwards of Kalahari (1.6 to 1.2) correlating to the 2nd level of drought of Botswana (-0.8 to -2.2). 
+
+
+
+
+
+	
+	
+	
 
 All figures and tables should be cited in the main text as Figure~\ref{fig1}, Table~\ref{tab1}, Table~\ref{tab2}, etc.
 
@@ -158,120 +186,16 @@ All figures and tables should be cited in the main text as Figure~\ref{fig1}, Ta
 \end{figure}   
 \unskip
 
-\begin{table}[H] 
-\caption{This is a table caption. Tables should be placed in the main text near to the first time they are~cited.\label{tab1}}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
-\midrule
-Entry 1		& Data			& Data\\
-Entry 2		& Data			& Data\\
-\bottomrule
-\end{tabularx}
-\end{table}
-\unskip
 
-\begin{table}[H]
-\caption{This is a wide table.\label{tab2}}
-	\begin{adjustwidth}{-\extralength}{0cm}
-		\newcolumntype{C}{>{\centering\arraybackslash}X}
-		\begin{tabularx}{\fulllength}{CCCC}
-			\toprule
-			\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}     & \textbf{Title 4}\\
-			\midrule
-			Entry 1		& Data			& Data			& Data\\
-			Entry 2		& Data			& Data			& Data \textsuperscript{1}\\
-			\bottomrule
-		\end{tabularx}
-	\end{adjustwidth}
-	\noindent{\footnotesize{\textsuperscript{1} This is a table footnote.}}
-\end{table}
-
-%\begin{listing}[H]
-%\caption{Title of the listing}
-%\rule{\columnwidth}{1pt}
-%\raggedright Text of the listing. In font size footnotesize, small, or normalsize. Preferred format: left aligned and single spaced. Preferred border format: top border line and bottom border line.
-%\rule{\columnwidth}{1pt}
-%\end{listing}
-
-Text.
-
-Text.
-
-\subsection{Formatting of Mathematical Components}
-
-This is the example 1 of equation:
-\begin{linenomath}
-\begin{equation}
-a = 1,
-\end{equation}
-\end{linenomath}
-the text following an equation need not be a new paragraph. Please punctuate equations as regular text.
-%% If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph.
-
-This is the example 2 of equation:
-\begin{adjustwidth}{-\extralength}{0cm}
-\begin{equation}
-a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z
-\end{equation}
-\end{adjustwidth}
-
-% Example of a page in landscape format (with table and table footnote).
-%\startlandscape
-%\begin{table}[H] %% Table in wide page
-%\caption{This is a very wide table.\label{tab3}}
-%	\begin{tabularx}{\textwidth}{CCCC}
-%		\toprule
-%		\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}	& \textbf{Title 4}\\
-%		\midrule
-%		Entry 1		& Data			& Data			& This cell has some longer content that runs over two lines.\\
-%		Entry 2		& Data			& Data			& Data\textsuperscript{1}\\
-%		\bottomrule
-%	\end{tabularx}
-%	\begin{adjustwidth}{+\extralength}{0cm}
-%		\noindent\footnotesize{\textsuperscript{1} This is a table footnote.}
-%	\end{adjustwidth}
-%\end{table}
-%\finishlandscape
-
-% Example of a figure that spans the whole page width. The same concept works for tables, too.
-\begin{figure}[H]
-\begin{adjustwidth}{-\extralength}{0cm}
-\centering
-\includegraphics[width=13.5cm]{Definitions/logo-mdpi}
-\end{adjustwidth}
-\caption{This is a wide figure.\label{fig2}}
-\end{figure}  
-
-Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows:
-%% Example of a theorem:
-\begin{Theorem}
-Example text of a theorem.
-\end{Theorem}
-
-The text continues here. Proofs must be formatted as follows:
-
-%% Example of a proof:
-\begin{proof}[Proof of Theorem 1]
-Text of the proof. Note that the phrase ``of Theorem 1'' is optional if it is clear which theorem is being referred to.
-\end{proof}
-The text continues here.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}
-
-Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
 
-This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
+The presented paper contributed to the regional study of Botswana with dominating semi-arid climate and vast areas lacking surface water and a diverse types landscapes including a complex mosaics of grass, sands and savanna (Campbell, 1986). Routinely based on processing a variety of thematic datasets, environmental studies depict the spatio-temporal trends in ecosystems using accurate empirical topographic, climate and environmental datasets related to the Earth’s surface and processes (Ishimoto et al. 2018; Klaučo et al. 2013a, 2013b; Lemenkova, 2019c; 2011, 2013). 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Patents}
+As a recommendation for future studies could be suggested advances in the data processing which include the assessment of the correlation between the selected environmental and climate variables, their location (distribution of the fields with similar values) and temporal variations, the climate parameters (PDSI, AET, PET, Tmax/min, soil moisture, precipitation intensity and repeatability with respect to local topography. 
 
-This section is not mandatory, but may be added if there are patents resulting from the work reported in this manuscript.
+This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determination of the possibility of droughts appearance using several multi-temporal climate datasets for different years and decades in Botswana. Furthermore, using the presented map of PDSI the results can be further evaluated for the four types of drought classification according to the regional setting of Botswana: four types of droughts: i) meteorological drought (dominating dry weather conditions); ii) hydrological drought (noticeable low water supply); iii) agricultural drought (crops are being affected); iv) socioeconomic drought. Here the 4th type is affecting social system and well-being of the population the most. Based on the TerraClimate and GEBCO datasets, this study visualized the series of climate and environmental inventory maps on Botswana for 2018 using GMT scripting.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
@@ -285,69 +209,36 @@ This section is not mandatory, but may be added if there are patents resulting f
 % \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.}
 
-\funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
+\funding{The APC was fully covered by the \emph{Multidisciplinary Digital Publishing Institute (MDPI)} based on a special invitation for publication of this article by the Editorial Board of \emph{ISPRS International Journal of Geo-Information (IJGI)}.}
 
-\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
+\institutionalreview{Not applicable.}
 
-\informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
+\informedconsent{Not applicable.}
 
-Written informed consent for publication must be obtained from participating patients who can be identified (including by the patients themselves). Please state ``Written informed consent has been obtained from the patient(s) to publish this paper'' if applicable.}
+\dataavailability{The GitHub repository of the author with available GMT scripts (accessed on 25 June 2022)}.
 
-\dataavailability{In this section, please provide details regarding where data supporting reported results can be found, including links to publicly archived datasets analyzed or generated during the study. Please refer to suggested Data Availability Statements in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}. If the study did not report any data, you might add ``Not applicable'' here.} 
+\acknowledgments{The author thanks the anonymous reviewers for their comments and suggestions on the initial version of the text.}
 
-\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments).}
-
-\conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflict of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the~results''.} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Optional
-\sampleavailability{Samples of the compounds ... are available from the authors.}
-
-%% Only for journal Encyclopedia
-%\entrylink{The Link to this entry published on the encyclopedia platform.}
+\conflictsofinterest{The author declares no conflict of interest.} 
 
 \abbreviations{Abbreviations}{
 The following abbreviations are used in this manuscript:\\
 
 \noindent 
 \begin{tabular}{@{}ll}
-MDPI & Multidisciplinary Digital Publishing Institute\\
-DOAJ & Directory of open access journals\\
-TLA & Three letter acronym\\
-LD & Linear dichroism
+GMT & Generic Mapping Tools \\
+DOC & Dissolved Organic Carbon \\
+IRIS & Incorporated Research Institutions for Seismology \\
+EGM & Earth Gravitational Model \\
+GEBCO & General Bathymetric Chart of the Oceans \\ 
+CSV & Comma-Separated Values \\
+GDAL & Geospatial Data Abstraction Library \\
+GIS & Geographic Information System \\
+RGB & Red-Green-Blue \\
+DCW & Digital Chart of the World 
 \end{tabular}
 }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Optional
-\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
-\appendixstart
-\appendix
-\section[\appendixname~\thesection]{}
-\subsection[\appendixname~\thesubsection]{}
-The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
-
-\begin{table}[H] 
-\caption{This is a table caption.\label{tab5}}
-\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
-\midrule
-Entry 1		& Data			& Data\\
-Entry 2		& Data			& Data\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\section[\appendixname~\thesection]{}
-All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{adjustwidth}{-\extralength}{0cm}
-%\printendnotes[custom] % Un-comment to print a list of endnotes
 
 \reftitle{References}
 
@@ -389,28 +280,11 @@ Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Loc
 Title of Site. Available online: URL (accessed on Day Month Year).
 \end{thebibliography}
 
-% If authors have biography, please use the format below
 %\section*{Short Biography of Authors}
 %\bio
 %{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
 %{\textbf{Firstname Lastname} Biography of first author}
 %
-%\bio
-%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
-%{\textbf{Firstname Lastname} Biography of second author}
-
-% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
-% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
-% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% for journal Sci
-%\reviewreports{\\
-%Reviewer 1 comments and authors’ response\\
-%Reviewer 2 comments and authors’ response\\
-%Reviewer 3 comments and authors’ response
-%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{adjustwidth}
 \end{document}
 
