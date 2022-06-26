@@ -85,26 +85,39 @@ $^{1}$ \quad Université Libre de Bruxelles (ULB), École polytechnique de Bruxe
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
+\subsection{Background}
+With ever expanding geospatial data collections, the analysis of the geo-information is becoming a fundamental research issue for many applications in Earth sciences, such as detecting trends, change analysis, prognosis sand forecasting, visualization and modelling. Mapping spatial data aims to visualize the data in a most effective way in order to highlight the variations in values of spatially-defined variables, such as topography, temperature, soil moisture and may more. To this end, the cartographic visualization has to bridge the gap between technical processing of spatial data and highlighting the semantics of geo-information as a source of knowledge in environmental and Earth science. Different approaches have been proposed to a variety of cartographic methods and spatial data processing \cite{}.
+
+A Geographic Information System (GIS) is a common tool in cartographic data processing which includes the typical data semantics as points, line and polygon types in vector data, as well as pixel-based raster data that can be read and processed by a variety of functions and modules existing in various GIS. With enough functionality and robust data, the GIS methods can be used for data visualization and modelling. However, obtaining the higher automation and speed of data processing is usually difficult in traditional GIS which biases to the human-based data handling and may include subjective misclassification and errors. This becomes more problematic when processing large datasets that require quick and seamless spatial data formatting and the need for automation in case of repetitive cartographic operations. Besides, while GIS methods are more or less capable of handling spatial data as objects including surface modelling, they are often more sensitive to visualization and preparing graphical layouts of the output map. In many cases, preparing the final layout of the maps is a handmade process that requires optimization and automation.
+
+To progress beyond the traditional methods of GIS, this paper presents an alternative approach to cartographic data processing using a console-based scripts of Generic Mapping Tools (GMT). The GMT utilises a modular system of GMT which iautomatically decomposes the complete cartographic workflow into a series of continuous piecewise components of scripts, i.e., lines of code written in GMT syntax. In such a way, script handles the complete process of spatial data from data formatting and modelling to generating a final layout generating a map and converting the output data. Applying scripting approaches, such as the GMT, benefits from simple and straightforward approach of code, efficient optimisation of data processing where each cartographic operation is being processed by a single module with various finely-adjusted options through extended functionality, compared to the traditional GIS. Once written scripts are easily amenable and adjustable to repetitive data processing that require similar tasks.
+
+The proposed framework of GMT-based mapping produces accurate maps through the efficient cartographic workflow. Specifically, it includes the annotation accuracy with improved readability of maps. The speed of running the scripts, which is only several seconds for even complex data handling, ensures the effectiveness of cartographic workflow and reduces the human-based routine. Besides, another important difference between the traditional GIS and the script-based GMT is that each script guarantees to be resulted in plotted map that is technically defined in the lines of code, in contrast to the hidden flaws and occasional errors of GIS interface. In other words, both the data processing and data visualization in GMT are defined from a fixed commands of code lines that handle in a data straightforward way and results in the programmed output. 
+
+Currently, most geospatial data processing tasks and the analysis of geo-information require that spatial features and objects plotted on the maps are extracted from the raw datasets effectively and rapidly, to produce the reliable and readable maps. The GMT method works in a unified framework which can jointly optimize the technical geospatial data processing and produce the aesthetically adjusted layouts of maps. Thus, the focus of this paper is to demonstrate that a console-based scripting in GMT which is performed through a command line can be used to represent effectively spatial data of various complexity and to model the environmental and climate variables using the functionality of GMT. A case study is Botswana, southern Africa.
+
+\subsection{Motivation}
+Interest in climate assessment, the occurrence and distribution of droughts and climatic extremes in Botswana has been driven by the need to analyze environmental issues of the country: range degradation \cite{Vanderpost}, evolution and adaptation of agro-pastoral livelihoods to recurrent droughts \cite{Mogotsi}, land change in the dryland agricultural landscapes of Botswana involving expanding bare lands and rocky surfaces \cite{Akinyemi}, biochemical analysis, e.g. studies of the effect of evapotranspiration on the evolution of dissolved inorganic carbon in the NW Botswana \cite{Atekwana}. A variety of environmental studies in Botswana focused on the analysis of rainfall repeatability, intensity and consequences in different regions of the country. Modeling the meteorological data enables to perform both retrospective and predictive assessment of the climate change variations. For instance, \cite{Kenabatho} performed retrospective analysis of climate effects in arid environment of Botswana to determine changes in rainfall series and identify correlations between rainfall and temperature. In contrast, a prognosis study estimating the beginning and end of summer rainfalls is presented by \cite{Byakatonda2019}. Rainfall variability and trends for analysis of their effects on vulnerable dryland agriculture through climate variation were presented in previous papers \cite{Batisani}.
+
+\subsection{Study Area}
 Botswana is a topographically flat country with unique extra arid climate caused by the presence of Kalahari Desert which occupies up to 70\% of the territory of country (Figure~\ref{fig:01}). The biochemical composition of the sandstones from Kalahari Desert shows a distribution of quartzose sediments and sandstones prone to chemical weathering producing high volumes of clay minerals \cite{Franchi}. Together with extreme degrees of temperature, such geologic and environmental setting of Kalahari limit the distribution of vegetation and controls the types of dominating plants and species adopted to such conditions. Another notable landform of Botswana is the Okavango Delta located in the NW of the country (Figure~\ref{fig:01}), which is one of the world's largest inland deltas losing about 98\% of its water through evapotranspiration \cite{Moses}. The Makgadikgadi Pan salt pan with specific dune, barchan and crescentic sand landforms, located over the dry savanna of NE of the country, is one of the largest salt flats in the world \cite{Burrough}.
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_01.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_01.jpg} 
 \end{center}
 \caption{Topographic map of Botswana. Mapping: GMT. Source: author}
 \label{fig:01}
 \end{figure}
-\unskip
+%\unskip
 
 Due to the extreme environmental and climate setting such as drought \cite{Hemming,Karikari} Tabona, 2004), Botswana is one of the world’s least populated countries. Botswana people need to adapt to special living setting and adjust their social activities constrained by the environmental factors: livestock diseases, human-wildlife conflicts, drought, water supply deficit, resource scarcity, fragmented landscapes, bush encroachment of savannah ecosystems \cite{Badimo,Basupi,Charis}. Therefore, special successful measures and actions were introduced as state subsidies for drought relief management aimed at food and nutrition security \cite{Belbase}. The assessment of social vulnerability to natural hazards in Botswana acts as a measure for reduction of climate and environmental disaster risks \cite{Dintwa}. \cite{Byakatonda2018a} recognized that hydrological droughts in Botswana may have several months of lag after the climatological droughts which shows the complex non-linear correlation between the hydrological and environmental factors associated with climate variability. 
 
-Interest in climate assessment, the occurrence and distribution of droughts and climatic extremes in Botswana has been driven by the need to analyze environmental issues of the country: range degradation \cite{Vanderpost}, evolution and adaptation of agro-pastoral livelihoods to recurrent droughts \cite{Mogotsi}, land change in the dryland agricultural landscapes of Botswana involving expanding bare lands and rocky surfaces \cite{Akinyemi}, biochemical analysis, e.g. studies of the effect of evapotranspiration on the evolution of dissolved inorganic carbon in the NW Botswana \cite{Atekwana}. 
+\subsection{Goals and Objectives}
+To contribute to the existing studies of climate in Botswana the existing research should be continued through the updated maps based on the actual datasets. In view of this, the aim of this paper is to produce a series of the new climatic inventory maps of Botswana. 
 
-A variety of environmental studies in Botswana focused on the analysis of rainfall repeatability, intensity and consequences in different regions of the country. Modeling the meteorological data enables to perform both retrospective and predictive assessment of the climate change variations. For instance, \cite{Kenabatho} performed retrospective analysis of climate effects in arid environment of Botswana to determine changes in rainfall series and identify correlations between rainfall and temperature. In contrast, a prognosis study estimating the beginning and end of summer rainfalls is presented by \cite{Byakatonda2019}. Rainfall variability and trends for analysis of their effects on vulnerable dryland agriculture through climate variation were presented in previous papers \cite{Batisani}.
-
-To contribute to the existing studies of climate in Botswana the existing research should be continued through the updated maps based on the actual datasets. In view of this the aim of this paper is to produce a series of the new climatic inventory maps of Botswana. The specific goal of this manuscript is to provide the environmental and climate context in Botswana through the advanced cartographic visualization. It involves the analysis regarding the distribution of temperature extremes in Botswana, occurrence of drought events, variation in the potential and actual evapotranspiration visualized on the maps. 
-
-The analyzed correlations between the soil moisture and precipitation, climate variables and topographic significant landforms can be used for land management, crop monitoring and nature conservation in Botswana. The main objectives of the presented research are multifold:
+The specific goal of this study is to support the environmental and climate analysis in Botswana through the advanced cartographic visualization. It involves the analysis regarding the distribution of temperature extremes in Botswana, occurrence of drought events, variation in the potential and actual evapotranspiration visualized on the maps. The analyzed correlations between the soil moisture and precipitation, climate variables and topographic significant landforms can be used for land management, crop monitoring and nature conservation in Botswana. 
+The main objectives of the presented research are multifold:
 
 \begin{enumerate}[label=\roman*]
 	\item	to produce a thematic series of climate maps of Botswana and their associated topographic, environmental and climate attributes, referenced to the regional and local geospatial geographic scale of Botswana; 
@@ -128,12 +141,12 @@ The methodology of recent environmental studies is mostly focused on utilizing t
     
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_02.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_02.jpg} 
 \end{center}
 \caption{T °C minimum (tmin) in Botswana. Mapping: GMT. Source: author.}
 \label{fig:02}
 \end{figure}
-\unskip
+%\unskip
 
 	Provided each module of GMT results in added cartographic element (e.g. ‘grdimage’ for visualizing raster image, ‘grdcontour’ for adding isolines, ‘psscale’ for adding color legend, ‘psbasemap’ for adding scale bar, directional rose, etc), GMT is capable of visualizing raster and vector data with each parameter adjusted in a line of the code written using GMT syntax. To be more illustrative, examples of the code snippets are provided below with explanations. Figure~\ref{fig:01} shows the topographic map of Botswana. The visualization has been made using a sequence of the GMT codes of which the most important are the following ones:
 
@@ -155,12 +168,12 @@ Using the same approach of scripting presented above, all the other climate maps
     
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_03.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_03.jpg} 
 \end{center}
 \caption{T °C maximum (tmax) in Botswana. Mapping: GMT. Source: author.}
 \label{fig:03}
 \end{figure}
-\unskip
+%\unskip
 
 The important code snippets for climate maps: 
 
@@ -176,12 +189,12 @@ The important code snippets for climate maps:
    
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_04.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_04.jpg} 
 \end{center}
 \caption{Precipitation in Botswana (2018). Mapping: GMT. Source: author.}
 \label{fig:04}
 \end{figure}
-\unskip
+%\unskip
 
     All the maps were plotted in the Mercator projection in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for compatibility and agreement of the map series. The maps were adjusted for the extent of Botswana and surrounding regions (neighboring countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here the '-R19.5/29.5/-27/-17.5' stands for the coordinates of the atusy area in WESN (West-East-South-North) convention with coordinates of southern hemisphere as negative values.
     This paper accepts the Palmer Drought Severity Index (PDSI) for visualizing the strength of drought over Botswana. Besides the PDSI, there are other types of indices used for meteorological and climate research, for instance: Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) to mention a few \cite{Byakatonda2018b,Byakatonda2018c}. The PDSI was chosen since this is a reliable and reputable index known since its development by Palmer in 1965 \cite{Palmer} based on a measurement of dryness based on recent precipitation and temperature. 
@@ -193,23 +206,23 @@ How the temperature extremes are distributed over Botswana (Figure~\ref{fig:02} 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_05.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_05.jpg} 
 \end{center}
 \caption{Soil moisture in Botswana. Mapping: GMT. Source: author.}
 \label{fig:05}
 \end{figure}
-\unskip
+%\unskip
 
 The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac and red colors in Figure~\ref{fig:04}). the Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. Study of soil properties is important for environmental and landscape research \cite{Lindh202210,Lemenkov202103}. Variations in soil moisture (Figure~\ref{fig:05}) show the least moisture in the Kalahari Desert (0–1 mm/m, i.e. extreme dry, yellow color in Figure~\ref{fig:05}) with slight increase in the NW and selected central districts of Kalahari (1-2 mm/m, beige). 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_06.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_06.jpg} 
 \end{center}
 \caption{Potential evapotranspiration (PET) in Botswana. Data: WorldClim. Mapping: GMT. Source: author.}
 \label{fig:06}
 \end{figure}
-\unskip 	
+%\unskip 	
 
 Further gradual increase in soil moisture (2 to 5 mm/m, green colors) is notable in the NW region of the country, in the Okawanga Delta and on border with Namibia. Moderate variations (up to 10 mm/m) are also notable around the Sehithwa village (Figure~\ref{fig:05}). The NW bias in the trend of the data distribution is notable in the norther of the country due to precipitation increase in the north together with the temperature decrease associated with climate effects in Botswana and clear influence of the Kalahari Desert in southern regions of the country. 
 	
@@ -221,12 +234,12 @@ The curves of the fields of the downward surface shortwave radiation in Figure~\
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_07.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_07.jpg} 
 \end{center}
 \caption{Actual evapotranspiration (AET) in Botswana. Mapping: GMT. Source: author.}
 \label{fig:07}
 \end{figure}
-\unskip 
+%\unskip 
 
 As shown in Figure~\ref{fig:10} (Vapor Pressure Deficit, VPD of Botswana), there is a general trend for vapor pressure to be higher in the SW (Kalahari Desert with the highest values of 3.3, bright yellow color) and lower in the NE of Botswana (up to 1.4, purple colors in Figure~\ref{fig:10}). The VPD shows the deficit between the moisture in the air and the amount of moisture the air can contain when saturated. 
 	
@@ -238,46 +251,50 @@ The zero level is highlighted by the thick white isoline for the convenience of 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_08.jpg} 
+	\includegraphics[width=10.5 cm]{figures/fig_08.jpg} 
 \end{center}
 \caption{Downward surface shortwave radiation. Mapping: GMT. Source: author.}
 \label{fig:08}
 \end{figure}
-%\unskip 
+%%\unskip 
 
 In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest with values exceeding 318 Wm-2 (compare Figure~\ref{fig:12} with Figure~\ref{fig:08}). The next (lesser) level of drought severity with values of -0.8 to -2.2 (light plum color in Figure~\ref{fig:12}) was then examined with map of the vapor pressure having consecutively decreasing values southwards of Kalahari (1.6 to 1.2) correlating to the 2nd level of drought of Botswana (-0.8 to -2.2). 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_09.jpg} 
+	\includegraphics[width=10.0 cm]{figures/fig_09.jpg} 
 \end{center}
 \caption{Vapor pressure in Botswana (2018). Mapping: GMT. Source: author.}
 \label{fig:09}
 \end{figure}
+\unskip
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_10.jpg} 
+	\includegraphics[width=10.0 cm]{figures/fig_10.jpg} 
 \end{center}
 \caption{Vapor pressure deficit in Botswana. Mapping: GMT. Source: author.}
 \label{fig:10}
 \end{figure}
+\unskip 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_11.jpg} 
+	\includegraphics[width=9.5 cm]{figures/fig_11.jpg} 
 \end{center}
 \caption{Wind speed in Botswana. Mapping: GMT. Source: author.}
 \label{fig:11}
 \end{figure}
+\unskip 
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=9.0 cm]{figures/fig_12.jpg} 
+	\includegraphics[width=9.5 cm]{figures/fig_12.jpg} 
 \end{center}
 \caption{PDSI in Botswana. Mapping: GMT. Source: author.}
 \label{fig:12}
 \end{figure}
+\unskip 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
