@@ -63,7 +63,7 @@
 
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
-$^{1}$ \quad Université Libre de Bruxelles, École polytechnique de Bruxelles (EPB, Brussels Faculty of Engineering), Laboratory of Image Synthesis and Analysis, Building L, Campus de Solbosch CP131/3, Avenue Franklin D. Roosevelt 50, B-1050, Brussels, Belgium; polina.lemenkova@ulb.be or pauline.lemenkova@gmail.com}
+$^{1}$ \quad Université Libre de Bruxelles (ULB), École polytechnique de Bruxelles (Brussels Faculty of Engineering), Laboratory of Image Synthesis and Analysis (LISA), Building L, Campus de Solbosch CP131/3, Avenue Franklin D. Roosevelt 50, B-1050, Brussels, Belgium; polina.lemenkova@ulb.be or pauline.lemenkova@gmail.com}
 
 % Contact information of the corresponding author
 \corres{Correspondence: polina.lemenkova@ulb.be; Tel.: +32471860459 (P.L.)}
@@ -113,18 +113,18 @@ The analyzed correlations between the soil moisture and precipitation, climate v
 	\item to visualize environmental and climate parameters of Botswana for the year 2018 using GMT scripting techniques: temperature extremes Tmin/Tmax, precipitation, soil moisture, potential evapotranspiration (PET), actual evapotranspiration (AET), downward surface shortwave radiation, vapor pressure (VP), vapor pressure deficit (VPD), wind speed, Palmer Drought Severity Index (PDSI).
 \end{enumerate}
     
-    Automated methods and independent modules of GMT used to process climate datasets for mapping climate and environmental variables of Botswana included reference to the cartographic workflow of GMT described in the existing technical literature (Lemenkova, 2019a, 2019b, 2021a) including references cited in the following chapters. 
+    Automated methods and independent modules of GMT used to process climate datasets for mapping climate and environmental variables of Botswana included reference to the cartographic workflow of GMT described in the existing technical literature with examples of using GMT \cite{Lemenkova202140,Lemenkova202205}(Lemenkova, 2019a) including references cited in the following chapters. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
 
-The methodology of recent environmental studies is mostly focused on utilizing the traditional GIS approaches associated with the menu-based Graphical User Interface (GUI) software \cite{Kolawole,Lemenkova202206}; Klaučo et al. 2014; Schenke, Lemenkova, 2008; Suetova et al. 2005b; Lemenkova et al. 2012), while this study is fully based on the Generic Mapping Tools (GMT) toolset \cite{Wessel} which performs mapping through running the scripts via the command line from the console. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules as required in scripting. GMT has gained in popularity in topographic, marine geologic and geophysical mapping where highly detailed and accurate data for modelling the phenomena of the Earth processes and structures are essential (Gauger et al. 2007; Lemenkova, 2020a; Gohl et al. 2006a, 2006b; Kuhn et al. 2006).  
+The methodology of recent environmental studies is mostly focused on utilizing the traditional GIS approaches associated with the menu-based Graphical User Interface (GUI) software \cite{Kolawole,Lemenkova202206,Lemenkova202141}; Klaučo et al. 2014; Schenke, Lemenkova, 2008; Lemenkova et al. 2012), while this study is fully based on the Generic Mapping Tools (GMT) toolset \cite{Wessel} which performs mapping through running the scripts via the command line from the console. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules as required in scripting. GMT has gained in popularity in topographic, marine geologic and geophysical mapping where highly detailed and accurate data for modelling the phenomena of the Earth processes and structures are essential (Gauger et al. 2007; Lemenkova, 2020a; Gohl et al. 2006a, 2006b; Kuhn et al. 2006).  
 
 \subsection{Data}
-	A data set of GEBCO (Schenke, 2016) was used, which includes unprecedentedly high resolution (15 arc-second) topographic and bathymetric data covering the Earth's relief surface: https://www.gebco.net/. Topographic data quality is inherently influenced by the algorithms of data capture, processing and modeling as shown earlier \cite{Bracke,Smith} Lemenkova, 2021b, 2020d. The GEBCO data was thus well suited to reliably visualize the topography and geomorphic structures in the processed maps (Lemenkova, 2020b, 2020c). In addition, a dataset of TerraClimate of Botswana has been applied \cite{Abatzoglou}. 
+	A data set of GEBCO (Schenke, 2016) was used, which includes unprecedentedly high resolution (15 arc-second) topographic and bathymetric data covering the Earth's relief surface: https://www.gebco.net/. Topographic data quality is inherently influenced by the algorithms of data capture, processing and modeling, as shown earlier \cite{Bracke,Smith,Lemenkova202211} Lemenkova, 2021b. The GEBCO data was thus well suited to reliably visualize the topography and geomorphic structures in the processed maps (Lemenkova, 2020b, 2020c). In addition, a dataset of TerraClimate of Botswana has been applied \cite{Abatzoglou}. 
 	
 \subsection{Mapping Methodology}
-	The ability of GMT to visualize either the cartographic elements or apply the color palettes to the raster image surfaces is dependent on the adjusted settings (‘flags’) of that particular module (Lemenkova, 2020e). 
+	The ability of GMT to visualize either the cartographic elements or apply the color palettes to the raster image surfaces is dependent on the adjusted settings (‘flags’) of that particular module, as explained in previous works \cite{Lemenkova202213}. 
     
 \begin{figure}[H]
 \begin{center}
@@ -200,7 +200,7 @@ How the temperature extremes are distributed over Botswana (Figure~\ref{fig:02} 
 \end{figure}
 \unskip
 
-The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac and red colors in Figure~\ref{fig:04}). the Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. Study of soil properties is important for environmental research (Lemenkov and Lemenkova, 2021a, 2021b). Variations in soil moisture (Figure~\ref{fig:05}) show the least moisture in the Kalahari Desert (0–1 mm/m, i.e. extreme dry, yellow color in Figure~\ref{fig:05}) with slight increase in the NW and selected central districts of Kalahari (1-2 mm/m, beige). 
+The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac and red colors in Figure~\ref{fig:04}). the Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. Study of soil properties is important for environmental and landscape research (Lemenkov and Lemenkova, 2021a, 2021b). Variations in soil moisture (Figure~\ref{fig:05}) show the least moisture in the Kalahari Desert (0–1 mm/m, i.e. extreme dry, yellow color in Figure~\ref{fig:05}) with slight increase in the NW and selected central districts of Kalahari (1-2 mm/m, beige). 
 
 \begin{figure}[H]
 \begin{center}
@@ -292,14 +292,6 @@ This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determinat
 \vspace{6pt} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% optional
-%\supplementary{The following supporting information can be downloaded at:  \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.}
-
-% Only for the journal Methods and Protocols:
-% If you wish to submit a video article, please do so with any other supplementary material.
-% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \funding{The APC was fully covered by the \emph{Multidisciplinary Digital Publishing Institute (MDPI)} based on a special invitation for publication of this article by the Editorial Board of \emph{ISPRS International Journal of Geo-Information (IJGI)}.}
 
@@ -318,16 +310,21 @@ The following abbreviations are used in this manuscript:\\
 
 \noindent 
 \begin{tabular}{@{}ll}
-GMT & Generic Mapping Tools \\
-DOC & Dissolved Organic Carbon \\
-IRIS & Incorporated Research Institutions for Seismology \\
-EGM & Earth Gravitational Model \\
-GEBCO & General Bathymetric Chart of the Oceans \\ 
-CSV & Comma-Separated Values \\
+AET & Actual Evapotranspiration \\
+DSSR & Downward Shortwave Surface Radiation \\
 GDAL & Geospatial Data Abstraction Library \\
+GEBCO & General Bathymetric Chart of the Oceans \\ 
 GIS & Geographic Information System \\
-RGB & Red-Green-Blue \\
-DCW & Digital Chart of the World 
+GMT & Generic Mapping Tools \\
+GUI & Graphical User Interface \\
+NetCDF & Network Common Data Form \\
+PDSI & Palmer Drought Severity Index \\
+PET & Potential Evapotranspiration \\
+SRTM & Shuttle Radar Topography Mission \\
+SPI & Standardized Precipitation Index \\
+SPEI & Standardized Precipitation Evapotranspiration Index \\
+VPD & Vapor Pressure Deficit \\
+VP & Vapor Pressure \\
 \end{tabular}
 }
 
