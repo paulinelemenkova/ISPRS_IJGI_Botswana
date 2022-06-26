@@ -138,16 +138,7 @@ Automated methods and independent modules of GMT used to process climate dataset
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
 
-The methodology of recent environmental studies is mostly focused on utilizing the traditional approaches of data modelling associated with the menu-based Graphical User Interface (GUI) software \cite{Kolawole,Lemenkova202206,Ringrose1996,Lindh2021a,Manisa,Lemenkova202141,Ringrose1999,Lemenkova202125,Pachka,Pricope,Lemenkova202021}, while this study is fully based on the Generic Mapping Tools (GMT) toolset \cite{Wessel} which performs mapping through running the scripts via the command line from the console. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules as required in scripting. GMT has gained in popularity in topographic, marine geologic and geophysical mapping where highly detailed and accurate data for modelling the phenomena of the Earth processes and structures are essential \cite{Virden,Lemenkova202127,Senturk,Lemenkova202017,Lindh202208,Lemenkova202018,Shietal2009}.  
-
-\subsection{Data}
-	The topographic mapping was based on the GEBCO dataset covering the Earth's surface, \href{https://www.gebco.net/}{https://www.gebco.net/} \cite{Ermel,Schenke2016}. GEBCO has two significant advantages as a topographic data source: open source public availability and unprecedentedly high resolution (15 arc-second). Topographic data quality is inherently influenced by the algorithms of data capture, processing and modelling, as shown earlier \cite{Bracke,Smith,Lemenkova202211}. The GEBCO data well suited to reliably visualize the topography and geomorphic structures in the processed maps due to its high resolution, accuracy and precision \cite{Jakobsson,Lemenkova202112,Hall,Lemenkova202012,Marks}. In addition, a dataset of TerraClimate of Botswana has been applied \cite{Abatzoglou}. 
-	
-\subsection{Mapping Methodology}
-The GMT scripts used for mapping 12 maps in this manuscript are availably publicly in the open GitHub repository of the author with full codes used for plotting data:\\
- \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts}. 
- 
- The ability of GMT to visualize either the cartographic elements or apply the color palettes to the raster image surfaces is dependent on the adjusted settings (‘flags’) of that particular module, as explained in previous works \cite{Lemenkova202213}. 
+The methodology of recent environmental studies is mostly focused on utilizing the traditional approaches of data modelling associated with the menu-based Graphical User Interface (GUI) software \cite{Kolawole,Lemenkova202206,Ringrose1996,Lindh2021a,Manisa,Lemenkova202141,Ringrose1999,Lemenkova202125,Pachka,Pricope,Lemenkova202021}, while this study is fully based on the Generic Mapping Tools (GMT) toolset \cite{Wessel} which performs mapping through running the scripts via the command line from the console. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules as required in scripting, Fig. \ref{fig:02}. 
     
 \begin{figure}[H]
 \begin{center}
@@ -158,7 +149,16 @@ The GMT scripts used for mapping 12 maps in this manuscript are availably public
 \end{figure}
 %\unskip
 
-	Provided each module of GMT results in added cartographic element (e.g. ‘grdimage’ for visualizing raster image, ‘grdcontour’ for adding isolines, ‘psscale’ for adding color legend, ‘psbasemap’ for adding scale bar, directional rose, etc), GMT is capable of visualizing raster and vector data with each parameter adjusted in a line of the code written using GMT syntax. To be more illustrative, examples of the code snippets are provided below with explanations. Figure~\ref{fig:01} shows the topographic map of Botswana. The visualization has been made using a sequence of the GMT codes of which the most important and the essential lines of code are the following ones:
+GMT has gained in popularity in topographic, marine geologic and geophysical mapping where highly detailed and accurate data for modelling the phenomena of the Earth processes and structures are essential \cite{Virden,Lemenkova202127,Senturk,Lemenkova202017,Lindh202208,Lemenkova202018,Shietal2009}.  
+
+\subsection{Data}
+	The topographic mapping was based on the GEBCO dataset covering the Earth's surface, \href{https://www.gebco.net/}{https://www.gebco.net/} \cite{Ermel,Schenke2016}. GEBCO has two significant advantages as a topographic data source: open source public availability and unprecedentedly high resolution (15 arc-second). Topographic data quality is inherently influenced by the algorithms of data capture, processing and modelling, as shown earlier \cite{Bracke,Smith,Lemenkova202211}. The GEBCO data well suited to reliably visualize the topography and geomorphic structures in the processed maps due to its high resolution, accuracy and precision \cite{Jakobsson,Lemenkova202112,Hall,Lemenkova202012,Marks}. In addition, a dataset of TerraClimate of Botswana has been applied \cite{Abatzoglou}. 
+	
+\subsection{Mapping Methodology}
+The 12 GMT scripts used for mapping 12 maps in this manuscript are availably publicly in the open GitHub repository of the author with full access to codes used for plotting data:\\
+ \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts}. 
+ 
+ The ability of GMT to visualize either the cartographic elements or apply the color palettes to the raster image surfaces is dependent on the adjusted settings (‘flags’) of that particular module, as explained in previous works \cite{Lemenkova202213}. Provided each module of GMT results in added cartographic element (e.g. ‘grdimage’ for visualizing raster image, ‘grdcontour’ for adding isolines, ‘psscale’ for adding color legend, ‘psbasemap’ for adding scale bar, directional rose, etc), GMT is capable of visualizing raster and vector data with each parameter adjusted in a line of the code written using GMT syntax. To be more illustrative, examples of the code snippets are provided below with explanations. Figure~\ref{fig:01} shows the topographic map of Botswana. The visualization has been made using a sequence of the GMT codes of which the most important and the essential lines of code are the following ones:
 
 \begin{enumerate}
 	\item	Making background raster grid with 50\% translucency: $‘gmt grdimage bw_relief.nc -Cpauline.cpt -R19.5/29.5/-27/-17.5 -JM6.5i -I+a15+ne0.75 -t50 -Xc -P -K > \$ps’$
@@ -185,7 +185,7 @@ Using the same approach of scripting presented above, all the other climate maps
 \end{figure}
 %\unskip
 
-The important code snippets for climate maps: 
+The most essential code snippets used for plotting climate maps are as follows: 
 
 \begin{itemize}
 	\item	Extracting a subset of AET for Botswana: $‘gmt grdcut TerraClimate\_aet_2018.nc \\-R19.5/29.5/-27/-17.5 -Gbw\_aet.nc’.$
@@ -271,6 +271,14 @@ The zero level is highlighted by the thick white isoline for the convenience of 
 
 In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest with values exceeding 318 Wm-2 (compare Figure~\ref{fig:12} with Figure~\ref{fig:08}). The next (lesser) level of drought severity with values of -0.8 to -2.2 (light plum color in Figure~\ref{fig:12}) was then examined with map of the vapor pressure having consecutively decreasing values southwards of Kalahari (1.6 to 1.2) correlating to the 2nd level of drought of Botswana (-0.8 to -2.2). 
 
+\section{Conclusions}
+
+The presented paper contributed to the regional study of Botswana with dominating semi-arid climate and vast areas lacking surface water and a diverse types landscapes including a complex mosaics of grass, sands and savanna \cite{Campbell}. Routinely based on processing a variety of thematic datasets, environmental and applied geological studies depict spatio-temporal trends in ecosystems related to the Earth’s surface and processesusing topographic, climate and environmental datasets  \cite{AkinyemiKgomo,Ishimoto,Klauco2013,Eze,Lemenkova202212,Chipanshi,Klauco2017}. 
+
+As a recommendation for future studies could be suggested advances in the data processing which include the assessment of the correlation between the selected environmental and climate variables, their location (distribution of the fields with similar values) and temporal variations, the climate parameters (PDSI, AET, PET, Tmax/min, soil moisture, precipitation intensity and repeatability with respect to local topography. The results of this study continue existing investigations on complex interrelationships between climate, environmental and topographic factors in Botswana \cite{McGill,Maoyi,Ramberg2006b,Maoyi}, as well as their complex effects on the social dynamics in the country  \cite{Asefa,Vanderpost1995,Rahm,Mogomotsi}.
+
+This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determination of the possibility of droughts appearance using several multi-temporal climate datasets for different years and decades in Botswana. 
+
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[width=10.0 cm]{figures/fig_09.jpg} 
@@ -307,12 +315,7 @@ In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest w
 \end{figure}
 \unskip 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-
-The presented paper contributed to the regional study of Botswana with dominating semi-arid climate and vast areas lacking surface water and a diverse types landscapes including a complex mosaics of grass, sands and savanna \cite{Campbell}. Routinely based on processing a variety of thematic datasets, environmental and applied geological studies depict spatio-temporal trends in ecosystems related to the Earth’s surface and processesusing topographic, climate and environmental datasets  \cite{AkinyemiKgomo,Ishimoto,Klauco2013,Eze,Lemenkova202212,Chipanshi,Klauco2017}. As a recommendation for future studies could be suggested advances in the data processing which include the assessment of the correlation between the selected environmental and climate variables, their location (distribution of the fields with similar values) and temporal variations, the climate parameters (PDSI, AET, PET, Tmax/min, soil moisture, precipitation intensity and repeatability with respect to local topography. The results of this study continue existing investigations on complex interrelationships between climate, environmental and topographic factors in Botswana \cite{McGill,Maoyi,Ramberg2006b,Maoyi}, as well as their complex effects on the social dynamics in the country  \cite{Asefa,Vanderpost1995,Rahm,Mogomotsi}.
-
-This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determination of the possibility of droughts appearance using several multi-temporal climate datasets for different years and decades in Botswana. Furthermore, using the presented map of PDSI the results can be further evaluated for the four types of drought classification according to the regional setting of Botswana: four types of droughts: i) meteorological drought (dominating dry weather conditions); ii) hydrological drought (noticeable low water supply); iii) agricultural drought (crops are being affected); iv) socioeconomic drought. Here the 4th type is affecting social system and well-being of the population the most. Based on the TerraClimate and GEBCO datasets, this study visualized the series of climate and environmental inventory maps on Botswana for 2018 using GMT scripting.
+Finally, using the presented map of PDSI the results can be further evaluated for the four types of drought classification according to the regional setting of Botswana: four types of droughts: i) meteorological drought (dominating dry weather conditions); ii) hydrological drought (noticeable low water supply); iii) agricultural drought (crops are being affected); iv) socioeconomic drought. Here the 4th type is affecting social system and well-being of the population the most. Based on the TerraClimate and GEBCO datasets, this study visualized the series of climate and environmental inventory maps on Botswana for 2018 using GMT scripting.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
@@ -325,7 +328,7 @@ This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determinat
 
 \informedconsent{Not applicable.}
 
-\dataavailability{The GitHub repository of the author with available GMT scripts: \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts} (accessed on 25 June 2022)}.
+\dataavailability{The GitHub repository of the author with available GMT scripts: \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts} (accessed on 25 June 2022)}
 
 \acknowledgments{The author thanks the anonymous reviewers for their comments and suggestions on the initial version of the text.}
 
