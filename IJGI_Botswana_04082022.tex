@@ -106,7 +106,7 @@ Botswana is a country situated in southern Africa (Figure~\ref{fig:01})\hl{,} wh
 To progress beyond the traditional methods of GIS, \hl{current investigation} presents an alternative approach to cartographic data processing using a console-based scripts of Generic Mapping Tools (GMT) \cite{Wessel}. The GMT utilises a modular system of GMT which \hl{automatically} decomposes the complete cartographic workflow into a series of continuous piecewise components of scripts, i.e., lines of code written in GMT syntax. In such a way, script handles the complete process of spatial data from data formatting and modelling to generating a final layout\hl{, presenting} a map and converting the output data. \hl{In view of this, in this paper we study the benefits of exploiting the GMT scripting toolset for mapping environmental and climate parameters in Botswana.}
 
 \subsection{Study Area}
-Botswana is a topographically flat country with unique extra arid climate caused by the presence of Kalahari Desert which occupies up to 70\% of the territory of country (Figure~\ref{fig:01}). The biochemical composition of the sandstones from Kalahari Desert shows a distribution of quartzose sediments and sandstones prone to chemical weathering producing high volumes of clay minerals \cite{Franchi}. Together with extreme degrees of temperature, such geologic and environmental setting of Kalahari limit the distribution of vegetation and controls the types of dominating plants and species adopted to such conditions. 
+\hl{The topography of Botswana has the highest points along the south-east regions of the country, in the Kalahari Basin). In the rest of the regions, the landscapes are levelled, which creates unique climate setting. The Okavango Delta is presented by the alluvial fan of uniform topographic gradient. A notable geographic feature of Botswana is the} Kalahari Desert\hl{,} which occupies up to 70\% of the territory of country. 
     
 \begin{figure}[H]
 \begin{center}
@@ -116,6 +116,8 @@ Botswana is a topographically flat country with unique extra arid climate caused
 \label{fig:02}
 \end{figure}
 %\unskip
+
+\hl{The Kalahari Desert is mostly covered by red sands and sandstones with} quartzose sediments and sandstones. \hl{Such} biochemical composition \hl{makes it }prone to chemical weathering producing high volumes of clay minerals \cite{Franchi}. Together with \hl{the} extreme degrees of temperature, such geologic setting of \hl{the Kalahari Desert} limit the distribution of vegetation and controls the types of dominating plants. \hl{As a result, Kalahari is mostly covered by }species adopted to such \hl{environmental} conditions. 
 
 Due to the \hl{extreme temperatures during heat summer period and }drought \cite{Hemming,Karikari}\hl{, }Botswana is one of the world’s least populated countries. The population of Botswana needs to adapt to special living setting and adjust their social activities constrained by the environmental factors: livestock diseases, human-wildlife conflicts, drought, water supply deficit, resource scarcity, fragmented landscapes, bush encroachment of savannah ecosystems \cite{Badimo,Basupi,Charis}. Besides, specific environmental and climate conditions of the country and periods of severe drought\hl{ }contribute to the development of diseases, such as malaria or cholera. This is proved in several existing studies that analysed a correlation between the distribution of epidemiological diseases and environmental variations in Botswana: summer rainfalls, mean annual temperatures and topographic altitude
 \cite{Craig,Tonnang,Motsholapheko,Charnley}. \hl{At the same time, extreme temperature varies regionally, according to the distribution of landforms, which is also influenced by water areas and rivers, see} Figure~\ref{fig:02} and Figure~\ref{fig:03}. 
@@ -136,23 +138,32 @@ Therefore, \hl{regional analysis of the variation of climate parameters with reg
 \hl{In such regions, special }measures and actions were introduced as state subsidies for drought relief management aimed at food and nutrition security \cite{Belbase}. The assessment of social vulnerability to \hl{droughts} in Botswana acts as a measure for reduction of climate and environmental disaster risks \cite{Dintwa}. \cite{Byakatonda2018a} recognized that hydrological droughts in Botswana may have several months of lag after the climatological droughts which shows \hl{a complex and }non-linear correlation between the hydrological\hl{, topographic }and environmental factors associated with climate variability. 
 
 \subsection{Goals and Objectives}
-\hl{The goal of the presented research} is to demonstrate a functionality of the console-based scripting in GMT hl{for climate and environmental mapping of Botswana, southern Africa. The presented maps are} performed through the command line\hl{, which increased the speed and accuracy of mapping and enabled} to represent spatial data of various complexity\hl{. The objective was to model the environmental and climate parameters in Botswana. The country has a  high variability in climate parameters, which is related to the regional topographic variations.}
+\hl{The goal of the presented research} is to demonstrate \hl{the} functionality of the console-based scripting in GMT \hl{for climate and environmental mapping of Botswana. The presented maps are} performed through the command line\hl{, which increased the speed and accuracy of mapping and enabled} to represent spatial data of various complexity\hl{. The objective was to model the variability of environmental and climate parameters of the country.}
 
-To contribute to the existing \hl{climate} studies of Botswana\hl{, this study present a series of new} maps based on the \hl{climate and environmental} datasets. The specific goal of this study is to support the environmental and climate analysis in Botswana through the advanced cartographic visualization. It involves the analysis \hl{of} the distribution of temperature extremes in Botswana, occurrence of drought events, variation in the potential and actual evapotranspiration visualized on the maps. The analysed correlations between the soil moisture and precipitation, climate \hl{parameters} and topographic significant landforms can be used for land management, crop monitoring and nature conservation in Botswana. Practical applications of \hl{mapping} include environmental assessment and agricultural analysis in Botswana\hl{, because }it is strongly affected by climate variability and change. Hence, the information on climate characteristics, such as rainfall, droughts and changes in temperature and vapour pressure is crucial, as also noted in previous studies \cite{Maruatona}. The main objectives of the presented research are multifold:
+To contribute to the existing \hl{climate} studies of Botswana\hl{, this study presented a series of the new} maps based on the \hl{open} datasets. The specific goal \hl{was} to support the environmental and climate analysis in Botswana through the advanced cartographic visualization. It involves the analysis \hl{of} the distribution of temperature extremes in Botswana, occurrence of drought events, variation in the potential and actual evapotranspiration visualized on the maps. The \hl{correlations} between the soil moisture and precipitation, climate \hl{parameters} and topographic \hl{landforms} can be \hl{considered} for land management, crop monitoring and nature conservation in Botswana. Practical applications of \hl{mapping} include environmental assessment and agricultural analysis in Botswana\hl{, because }it is strongly affected by climate variability and characteristics, such as \hl{period of droughts, extreme temperatures and vapour pressure, as well as seasonal changes in rainfalls} \cite{Maruatona}. \hl{In light of the above said, }the \hl{focus of the presented research is on cartographic application of novel programming methods for climate and environmental assessment of Botswana}, which includes the following objectives:
 
 \begin{enumerate}[label=\roman*]
-	\item	to produce a thematic series of climate maps of Botswana and their associated topographic, environmental and climate attributes, referenced to the regional and local geospatial geographic scale of Botswana; 
-	\item to perform scripting based mapping of the results to present a new methodology of the GMT based mapping using coding approach which in contrast to the traditional GIS applies the synthesis of the cartographic methods and programming syntax;
-	\item to apply the open source datasets of GEBCO and TerraClimate raster data with a spatial extent of Botswana to address and visualize key questions regarding the occurrence, trends and strength of different climate variables associated with environmental versus topographic factors;
-	\item to visualize environmental and climate parameters of Botswana for the year 2018 using GMT scripting techniques: temperature extremes \hl{$T_{min}$/$T_{max}$}, precipitation, soil moisture, potential evapotranspiration (PET), actual evapotranspiration (AET), downward surface shortwave radiation, vapor pressure (VP), vapor pressure deficit (VPD), wind speed, Palmer Drought Severity Index (PDSI).
+	\item	to produce \hl{a }series of \hl{climatic} maps of Botswana and their associated topographic, environmental and climate attributes, referenced to the regional and local geospatial geographic scale of \hl{the country}; 
+	\item to perform \hl{script-based} mapping \hl{techniques, which} present a new \hl{cartographic }methodology. \hl{This includes the demonstrating of the programming} approach of GMT, \hl{which differs from} the traditional GIS, \hl{ because it integrates} the cartographic methods and \hl{the} programming syntax;
+	\item to apply the open source datasets of GEBCO and TerraClimate\hl{ with} a spatial extent of Botswana, \hl{aimed at addressing and visualising the} occurrence, trends and strength of different climate variables associated with environmental \hl{factors};
+	\item to visualise \hl{the} climate parameters of Botswana\hl{: }temperature extremes \hl{$T_{min}$/$T_{max}$}, precipitation, soil moisture, potential evapotranspiration (PET), actual evapotranspiration (AET), downward surface shortwave radiation, vapor pressure (VP), vapor pressure deficit (VPD), wind speed, Palmer Drought Severity Index (PDSI).
 \end{enumerate}
     
-Automated methods and independent modules of GMT used to process climate datasets for mapping climate and environmental variables of Botswana included reference to the cartographic workflow of GMT described in the existing technical literature with examples of using GMT \cite{Kasalica,Lemenkova2019106,Lemenkova202205,Lemenkova201994} including references cited in the following chapters. 
+\hl{The automated} methods and independent modules of GMT\hl{ were }used to process climate \hl{data showing } mapping climate and environmental variables of Botswana\hl{. This }included reference to the cartographic workflow of GMT\hl{, }described in the existing technical literature with examples of using\hl{ the program} \cite{Kasalica,Lemenkova2019106,Lemenkova202205,Lemenkova201994}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
 
-The methodology of recent environmental studies is mostly focused on utilizing the traditional approaches of data modelling associated with the menu-based Graphical User Interface (GUI) software \cite{Kolawole,Lemenkova202206,Ringrose1996,Lindh2021a,Manisa,Lemenkova202141,Ringrose1999,Lemenkova202125,Pachka,Pricope,Lemenkova202021}, while this study is fully based on the Generic Mapping Tools (GMT) toolset \cite{Wessel} which performs mapping through running the scripts via the command line from the console. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules as required in scripting, Fig. \ref{fig:02}. 
+The methodology of recent environmental studies is mostly focused on utilizing the traditional approaches of data modelling associated with the \hl{GUI-based} GIS software \cite{Kolawole,Lemenkova202206,Ringrose1996,Lindh2021a,Manisa,Lemenkova202141,Ringrose1999,Lemenkova202125,Pachka,Pricope,Lemenkova202021}\hl{. In contrast, }this study is \hl{inspired by the approach of GMT} \cite{Wessel}, which performs illustrative mapping through running the scripts via the command line from the console, e.g., Fig. \ref{fig:04}. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules\hl{, }as required in scripting. 
+   
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=12.0 cm]{figures/fig_04.jpg} 
+\end{center}
+\caption{Precipitation in Botswana (2018). Mapping: GMT. Source: author.}
+\label{fig:04}
+\end{figure}
+%\unskip
 
 GMT has gained in popularity in topographic, marine geologic and geophysical mapping where highly detailed and accurate data for modelling the phenomena of the Earth processes and structures are essential \cite{Virden,Lemenkova202127,Senturk,Lemenkova202017,Lindh202208,Lemenkova202018,Shietal2009}.  
 
@@ -192,15 +203,6 @@ The most essential code snippets used for plotting climate maps are as follows:
 \end{itemize}
   
     The general climate maps (\hl{$T_{min}$/$T_{max}$}, soil moisture, precipitation, downward surface shortwave radiation, vapor pressure, vapor pressure deficit and wind speed) and the derived reference indices (PDSI, PET, AET) used for Botswana originated from TerraClimate open source dataset for the year 2018. 
-   
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[width=12.0 cm]{figures/fig_04.jpg} 
-\end{center}
-\caption{Precipitation in Botswana (2018). Mapping: GMT. Source: author.}
-\label{fig:04}
-\end{figure}
-%\unskip
 
 All the maps were plotted in the Mercator projection in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for compatibility and agreement of the map series. The maps were adjusted for the extent of Botswana and surrounding regions (neighboring countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here the '-R19.5/29.5/-27/-17.5' stands for the coordinates of the atusy area in WESN (West-East-South-North) convention with coordinates of southern hemisphere as negative values.
 
