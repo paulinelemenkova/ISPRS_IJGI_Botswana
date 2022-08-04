@@ -38,6 +38,7 @@
 
 \graphicspath{{figures/}} % path to folder with figures
 \usepackage{gensymb}
+\usepackage[super]{nth}
 
 %=================================================================
 % Full title of the paper (Capitalized)
@@ -224,7 +225,7 @@ Using the same approach of scripting presented above, all the other climate maps
 	\item Using the \hl{Geospatial Data Abstraction Library (GDAL)} library for analysis of the statistics for $T_{min}$ raster grid of Botswana: $‘gdalinfo -stats bw\_tim.nc’.$ 
 \end{itemize}
   
-The general climate maps \hl{included following parameters plotted on the maps:} \hl{$T_{min}$/$T_{max}$}, soil moisture, precipitation, downward surface shortwave radiation, vapor pressure, vapor pressure deficit and wind speed) and the derived reference indices (PDSI, PET, AET)\hl{.} All the maps were plotted \hl{using }Mercator projection \hl{for compatibility reasons,} in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for compatibility and agreement of the map series. The maps were adjusted for the extent of \hl{the territory of} Botswana and \hl{the} surrounding regions (\hl{neighbouring} countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here the '-R19.5/29.5/-27/-17.5' stands for the coordinates of the atusy area in WESN (West-East-South-North) convention with coordinates of \hl{the} southern hemisphere as negative values.
+The general climate maps \hl{included following parameters plotted on the maps:} \hl{$T_{min}$/$T_{max}$}, soil moisture, precipitation, downward surface shortwave radiation, vapor pressure, vapor pressure deficit and wind speed) and the derived reference indices (PDSI, PET, AET)\hl{.} All the maps were plotted \hl{using }Mercator projection \hl{for compatibility reasons,} in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for compatibility and agreement of the map series. The maps were adjusted for the extent of \hl{the territory of} Botswana and \hl{the} surrounding regions (\hl{neighbouring} countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here the '-R19.5/29.5/-27/-17.5' stands for the coordinates\hl{ }in WESN (West-East-South-North) convention with coordinates of \hl{the} southern hemisphere as negative values.
 
 \begin{figure}[H]
 \begin{center}
@@ -235,15 +236,9 @@ The general climate maps \hl{included following parameters plotted on the maps:}
 \end{figure}
 %\unskip 
 
-\hl{The implementation of the GMT algorithm for cartographic data processing is straightforward. In addition to the parameters of modules needed to plot the maps, the}
+\hl{The implementation of the GMT algorithm for cartographic data processing is straightforward. In addition to the parameters of modules needed to plot the maps, the optimising setup of general GMT parameters was done. This included for instance, the annotation offset, which is required to tightly plot the auxiliary texts, using the following expression}: $MAP\_ANNOT\_OFFSET 0.2c$. \hl{Based on the preceding observations of the layouts of maps, the width and colour of map countours was defined using following expression and parameters}: $MAP\_TICK\_PEN\_PRIMARY thinner,dimgray$, \hl{which overwritten the previous parameters while disregarding the earlier settings.} 
 
-\hl{This work} accepts the Palmer Drought Severity Index (PDSI) for visualizing the strength of drought over Botswana. Besides the PDSI, there are other types of indices used for meteorological and climate research, for instance: Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI)\hl{ }\cite{Byakatonda2018b,Byakatonda2018c} or drought models \cite{Ujeneza,AkinyemiAbiodun}. The PDSI was chosen since this is a reliable and reputable index known since its development\hl{ }\cite{Palmer} based on \hl{the} measurement of dryness \hl{using data on} precipitation and temperature. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-\section{Results and Discussion}
-
-How the temperature extremes are distributed over Botswana (Figure~\ref{fig:02} and \ref{fig:03}) is important to understand the distribution of PDSI values (Figure~\ref{fig:12}). So, as can be seen in Figure~\ref{fig:02} (\hl{$T_{min}$} in Botswana in 2018), the minimal values over the country are recorded in the SE and S regions of the country in the proximity of Lobatse city and the Limpopo river valley where the values are lower and reach +16.5\hl{\degree} C and further to the east (region of South Africa). The maximal temperature (\hl{$T_{max}$}) in Botswana in 2018 is shown\hl{ }in Figure~\ref{fig:03}. 
+\hl{Effectively, we applied similar parameters for the cartographic grid using the expression} $MAP\_GRID\_PEN thinnest,dimgray$, \hl{in order to keep the grid visualized yet not to disturb the main content of maps. Furthermore, we introduce the template of the output geographical coordinate of the maps by formatting each layout using the following command:} $gmt set FORMAT\_GEO\_MAP=dddF$. \hl{In these parameters the goal is to adjust the same parameters of plotting for all the maps from the map series, to make them consistently designed for comparative analysis. Using similar approach, the script initialised using the expression} $ps=Topo\_BW.ps$ \hl{where all the commands executed by modules were inserted. In the end of script, it was followed the by command} $gmt psconvert Topo_BW.ps -A0.2c -E720 -Tj -Z$ \hl{for data conversion (here the example is provided for the downward surface shortwave radiation map in} Figure~\ref{fig:08}.
 
 \begin{figure}[H]
 \begin{center}
@@ -254,9 +249,15 @@ How the temperature extremes are distributed over Botswana (Figure~\ref{fig:02} 
 \end{figure}
 %%\unskip 
 
-An important aspect of the \hl{$T_{max}$} distribution over Botswana depicted in Figure~\ref{fig:03} is that the highest values of the \hl{$T_{max}$} are in the southern region of Kalahari (up to +38\hl{\degree} C, bright red color in Figure~\ref{fig:03}). This is partially caused by the typical hydrological and meteorological process of the evaporation due to the a lack of water as that all of the absorbed light goes into raising the surface temperature in the Kalahari Desert. The precipitation map (Figure~\ref{fig:04}) exhibited some degree of spatial dependent distribution of rainfalls generally increasing to the north. However, the isolines demonstrate the rather wedge-shaped sharp decrease of values reaching maximum between the 21\hl{\degree} and 22\hl{\degree} E in the center of Kalahari Desert.  
+\hl{This work} accepts the Palmer Drought Severity Index (PDSI) for visualizing the strength of drought over Botswana. Besides the PDSI, there are other types of indices used for meteorological and climate research, for instance: Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI)\hl{ }\cite{Byakatonda2018b,Byakatonda2018c} or drought models \cite{Ujeneza,AkinyemiAbiodun}. The PDSI was chosen since this is a reliable and reputable index known since its development\hl{ }\cite{Palmer} based on \hl{the} measurement of dryness \hl{using data on} precipitation and temperature. 
 
-The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac and red colors in Figure~\ref{fig:04}). the Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. Study of soil properties is important for environmental and landscape research \cite{Totolo,Lindh202210,Mosweu,Lemenkov202103,Zeilhofer}, as soil systems directly affects the plant health through linked interactions. Thus, variations in soil moisture indicate the environmental health of the ecosystems and dynamics in land cover types. Variations in soil moisture\hl{ }(Figure~\ref{fig:05}) show the least moisture in the Kalahari Desert (0–1 mm/m, i.e.\hl{, }extreme dry, yellow color in Figure~\ref{fig:05}) with slight increase in the NW and selected central districts of Kalahari (1-2 mm/m, beige). 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\section{Results and Discussion}
+
+\hl{The analysis of distribution of the }temperature extremes over Botswana (Figure~\ref{fig:02} and \ref{fig:03}) is important to understand the distribution of PDSI values (Figure~\ref{fig:12})\hl{, since these two parameters are linked}. So, as can be seen in Figure~\ref{fig:02} (\hl{$T_{min}$} in Botswana in 2018), the minimal values over the country are recorded in the \hl{south-eatsern} and \hl{southern} regions of the country\hl{, }in the proximity of \hl{the} Lobatse city and the Limpopo river valley\hl{, }where\hl{ }values are lower and reach +16.5\hl{\degree} C and further to the east (region of South Africa). The maximal temperature (\hl{$T_{max}$}) in Botswana in 2018 is shown\hl{ }in Figure~\ref{fig:03}. 
+
+An important aspect of the \hl{$T_{max}$} distribution over Botswana depicted in Figure~\ref{fig:03} is that the highest values of the \hl{$T_{max}$} are in the southern region of Kalahari (up to +38\hl{\degree} C, bright red \hl{colour} in Figure~\ref{fig:03}). This is partially caused by the typical hydrological and meteorological process of the evaporation due to the a lack of water as that all of the absorbed light goes into raising the surface temperature in the Kalahari Desert. The precipitation map (Figure~\ref{fig:04}) exhibited \hl{a certain} degree of \hl{spatially} dependent distribution of rainfalls\hl{, which} generally \hl{increases} to the north. However, the isolines demonstrate the rather wedge-shaped sharp decrease of \hl{that} values \hl{that reach the} maximum between the 21\hl{\degree} and 22\hl{\degree} E in the \hl{centre} of \hl{the} Kalahari Desert.  
 
 \begin{figure}[H]
 \begin{center}
@@ -265,15 +266,13 @@ The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac an
 \caption{Vapor pressure in Botswana (2018). Mapping: GMT. Source: author.}
 \label{fig:09}
 \end{figure}
-\unskip
+%\unskip
 
-Further gradual increase in soil moisture (2 to 5 mm/m, green colors) is notable in the NW region of the country, in the Okawanga Delta and on border with Namibia. Moderate variations (up to 10 mm/m) are also notable around the Sehithwa village (Figure~\ref{fig:05}). The NW bias in the trend of the data distribution is notable in the norther of the country due to precipitation increase in the north together with the temperature decrease associated with climate effects in Botswana and clear influence of the Kalahari Desert in southern regions of the country. 
+The Okawanga Delta shows the transitional values between 80 and 111 mm (lilac and red \hl{colours} in Figure~\ref{fig:04}). \hl{The }Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. \hl{If we compare these values to the different regions of Botswana, it becomes clear that the precipitation is higher in the northern regions of the country and in the southern are, along the river of Limpopo. The} study of soil properties is important for environmental and landscape research \cite{Totolo,Lindh202210,Mosweu,Lemenkov202103,Zeilhofer}, as soil systems directly affects the plant health through linked interactions. Thus, \hl{the} variations in soil moisture indicate the environmental health of the ecosystems and dynamics in land cover types. Figure~\ref{fig:05} \hl{illustrates the }variations in soil moisture\hl{ which }show the least moisture in the Kalahari Desert (0–1 mm/m, i.e.\hl{, }extreme dry, yellow \hl{colour} in Figure~\ref{fig:05}) with \hl{a} slight increase in the NW and selected central districts of Kalahari (1-2 mm/m, beige), Figure~\ref{fig:05}. 
 
-The potential evapotranspiration (PET) (Figure~\ref{fig:06}) values are visualized continuously extracted for Botswana and ranging from minimum at 133 mm to a maximum at 250 mm, mean at 196.048 mm, standard deviation at 26.166 mm. The maximal is clearly visible in the lower region of Kalahari region (over 240 mm). 
+Further gradual increase in soil moisture (2 to 5 mm/m, green \hl{colours}) is notable in the \hl{north-western} region of the country, \hl{specifically} in the Okawanga Delta and on \hl{the} border with Namibia. Moderate variations (up to 10 mm/m) are also notable around the Sehithwa village (Figure~\ref{fig:05}). The \hl{north-western} bias in the trend of  \hl{data }distribution is notable in the \hl{north} of the country \hl{owing to the} precipitation\hl{, which increases northwards. At the same time,} the temperature decrease\hl{ is} associated with climate effects in Botswana and \hl{direct impact from} the Kalahari Desert in \hl{the} southern \hl{region }of the country. 
 
-Using GDAL inspection by 'gdalinfo', the actual evapotranspiration (AET) in Botswana (Figure~\ref{fig:07}) was analyzed and the data variations is shown: Minimum at 13 mm, Maximum at 148 mm, Mean at 73.225 mm, StdDev at 28.295 mm. Here the minimal values correspond to the Kalahari Desert region in southern Botswana (values 0 to 50 mm). The gradients of isolines decrease (become less curved) in the northward direction to Okawanga Delta where the values reach up to 120 mm.
-
-The curves of the fields of the downward surface shortwave radiation in Figure~\ref{fig:08} reflect the total amount of shortwave radiation, both direct and diffuse that reaches the Earth's surface over the area in Botswana. The overall increase in the values can be noticed as increasing towards the southern region of Kalahari where the values reach up to 326 Wm-2 (bright red colors in Figure~\ref{fig:08}) from the lowest in the northern region with the minimal values of 234 Wm-2 (light beige colors in Figure~\ref{fig:08}). The vapor pressure (Figure~\ref{fig:09}) and vapor pressure deficit (Figure~\ref{fig:10}) correlate in general trend increasing towards the southern regions of Kalahari Desert and reaching values of 2.56 atm from the minimal of 1.17 atm in the norther of the country for vapor pressure. 
+The potential evapotranspiration (PET) (Figure~\ref{fig:06}) values are visualized continuously \hl{from the data} extracted for Botswana. \hl{Here the data are} ranging from \hl{a minimum of} 133 mm to a maximum \hl{of} 250 mm. \hl{Basic statistical inspection shows the mean of} 196.048 mm \hl{and the} standard deviation \hl{of} 26.166 mm. The maximal is clearly visible in the lower region of Kalahari region (over 240 mm). Using \hl{the} GDAL inspection by 'gdalinfo', the actual evapotranspiration (AET) Figure~\ref{fig:07}) was analysed and the data variations is shown \hl{as follows} : \hl{a minimum of} 13 mm, \hl{a maximum of} 148 mm, \hl{a mean of} 73.225 mm, \hl{and the standard deviation of} 28.295 mm. \hl{Here,} the minimal values correspond to the \hl{location of the} Kalahari Desert\hl{ }in southern Botswana (values 0 to 50 mm). The gradients of isolines decrease (become less curved) in the northward direction \hl{towards the} Okawanga Delta\hl{, }where the values reach up to 120 mm.
 
 \begin{figure}[H]
 \begin{center}
@@ -282,13 +281,11 @@ The curves of the fields of the downward surface shortwave radiation in Figure~\
 \caption{Vapor pressure deficit in Botswana. Mapping: GMT. Source: author.}
 \label{fig:10}
 \end{figure}
-\unskip
+%\unskip
 
-As shown in Figure~\ref{fig:10} (Vapor Pressure Deficit, VPD of Botswana), there is a general trend for vapor pressure to be higher in the SW (Kalahari Desert with the highest values of 3.3, bright yellow color) and lower in the NE of Botswana (up to 1.4, purple colors in Figure~\ref{fig:10}). The VPD shows the deficit between the moisture in the air and the amount of moisture the air can contain when saturated. 
-	
-The measured wind speed (Figure~\ref{fig:11}) reaches the maximal values in the area of Jwaneng eastward of Kalahari. The inspection of data gives the following data range: minimum at 1.8 m/s, maximum at 3.4 m/s, mean at 2.587 m/s, and standard deviation of values at 0.352m/s (Figure~\ref{fig:11}).
+The curves of the \hl{continuous} fields \hl{showing} the downward surface shortwave radiation \hl{are illustrated} in Figure~\ref{fig:08}\hl{, which reflects} the total amount of shortwave radiation, both direct and diffuse\hl{,} that reaches the Earth's surface over the area in Botswana. The overall increase in the values can be noticed as increasing towards the southern region of Kalahari where the values reach up to 326 \hl{$Wm^{-2}$} (bright red \hl{colours} in Figure~\ref{fig:08}) from the lowest in the northern region with the minimal values of 234 \hl{$Wm^{-2}$} (light beige \hl{colours} in Figure~\ref{fig:08}). The \hl{vapour} pressure (Figure~\ref{fig:09}) and \hl{vapour} pressure deficit (Figure~\ref{fig:10}) correlate in general trend increasing towards the southern regions of Kalahari Desert and reaching values of 2.56 atm from the minimal of 1.17 atm in the norther of the country for \hl{vapour} pressure. 
 
-In general, the PDSI drought levels in Botswana in 2018 (Figure~\ref{fig:12}) show stepwise variation of index with roughly seven areas: 1) -3.7 to -2.2. (extreme drought); 2) -2.2 to -0.8 (strong drought, southern Kalahari); 3) -0.8 to 0.7 (significant drought): central Kalahari; 4) 0.7 to 2.1 (moderate drought); 5) 2.1 to 3.5 (lesser drought); 6) 3.5 to 4.9 (low drought); 7) 4.9 to 6.4 (least drought), Figure~\ref{fig:12}. 
+As shown in Figure~\ref{fig:10} (Vapour Pressure Deficit, VPD of Botswana), there is a general trend for \hl{vapour} pressure to be higher in the SW (Kalahari Desert with the highest values of 3.3, bright yellow \hl{colour}) and lower in the NE of Botswana (up to 1.4, purple \hl{colours} in Figure~\ref{fig:10}). The VPD shows the deficit between the \hl{practical (real) value of the} moisture in the air and the \hl{theoretical} amount of moisture \hl{that} the air can contain when saturated. The measured wind speed (Figure~\ref{fig:11}) reaches the maximal values in the area of Jwaneng eastward of Kalahari. The inspection of data gives the following data range: minimum at 1.8 m/s, maximum at 3.4 m/s, mean at 2.587 m/s, and standard deviation of values at 0.352 m/s (Figure~\ref{fig:11}).
 
 \begin{figure}[H]
 \begin{center}
@@ -297,13 +294,11 @@ In general, the PDSI drought levels in Botswana in 2018 (Figure~\ref{fig:12}) sh
 \caption{Wind speed in Botswana. Mapping: GMT. Source: author.}
 \label{fig:11}
 \end{figure}
-\unskip 
+%\unskip 
 
-The zero level is highlighted by the thick white isoline for the convenience of the classification (Figure~\ref{fig:12}). One possibility to explain the PDSI values (Figure~\ref{fig:12}) showing the minimal values (i.e., extreme drought with values -2.2 to -3.8) is that the minimal temperatures are recorded as the deepest around the Lobaste in the south of the country (Figure~\ref{fig:02}) which also corresponds to the low precipitation level in this region, Figure~\ref{fig:04}, 35 to 61 mm, green colors: region of Jwaneng, Gaborone, area southwards of Kalahari. 
+In general, the PDSI drought levels in Botswana in 2018 (Figure~\ref{fig:12}) show stepwise variation of index with roughly seven areas: 1) -3.7 to -2.2. (extreme drought); 2) -2.2 to -0.8 (strong drought, southern Kalahari); 3) -0.8 to 0.7 (significant drought): central Kalahari; 4) 0.7 to 2.1 (moderate drought); 5) 2.1 to 3.5 (lesser drought); 6) 3.5 to 4.9 (low drought); 7) 4.9 to 6.4 (least drought), Figure~\ref{fig:12}. The zero level is highlighted by the thick white isoline for the convenience of the classification (Figure~\ref{fig:12}). One possibility to explain the PDSI values (Figure~\ref{fig:12}) showing the minimal values \hl{, i.e.,} extreme drought with values -2.2 to -3.8)\hl{, }is that the minimal temperatures are recorded as the deepest \hl{area} around the Lobaste, \hl{which is situated in the southern region} of the country (Figure~\ref{fig:02})\hl{. Besides, this} also corresponds to the low precipitation level in this region, \hl{compare with} Figure~\ref{fig:04}, 35 to 61 mm, green \hl{colours}: region of Jwaneng, Gaborone, area southwards of Kalahari. 
 
-In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest with values exceeding 318 Wm-2 (compare Figure~\ref{fig:12} with Figure~\ref{fig:08}). The next (lesser) level of drought severity with values of -0.8 to -2.2 (light plum color in Figure~\ref{fig:12}) was\hl{ }examined with map of the vapor pressure having consecutively decreasing values southwards of Kalahari (1.6 to 1.2) correlating to the 2nd level of drought of Botswana (-0.8 to -2.2).
-
-The proposed framework of GMT-based mapping produces accurate maps through the efficient cartographic workflow. Specifically, it includes the annotation accuracy with improved readability of maps. The speed of running the scripts, which is only several seconds for even complex data handling, ensures the effectiveness of cartographic workflow and reduces the human-based routine. Besides, another important difference between the traditional GIS and the script-based GMT is that each script guarantees to be resulted in plotted map that is technically defined in the lines of code, in contrast to the hidden flaws and occasional errors of GIS interface. In other words, both the data processing and data visualization in GMT are defined from a fixed commands of code lines that handle in a data straightforward way and results in the programmed output.  
+In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest with values exceeding 318 \hl{$Wm^{-2}$} (compare Figure~\ref{fig:12} with Figure~\ref{fig:08}). The next (lesser) level of drought severity with values of -0.8 to -2.2 (light plum \hl{colour} in Figure~\ref{fig:12}) was\hl{ }examined with map of the \hl{vapour} pressure having consecutively decreasing values southwards of Kalahari (1.6 to 1.2) correlating to the \nth{2} level of drought of Botswana (-0.8 to -2.2).
 
 \begin{figure}[H]
 \begin{center}
@@ -312,7 +307,9 @@ The proposed framework of GMT-based mapping produces accurate maps through the e
 \caption{PDSI in Botswana. Mapping: GMT. Source: author.}
 \label{fig:12}
 \end{figure}
-\unskip  
+%\unskip  
+
+The proposed framework of \hl{the} GMT-based mapping produces \hl{a series of} accurate maps through the efficient cartographic workflow. Specifically, it includes the annotation accuracy with improved readability of maps. The speed of running the scripts\hl{ is} only several seconds for even complex data handling, \hl{which} ensures the effectiveness of \hl{the} cartographic workflow and reduces the human-based routine. Besides, another important difference between the traditional GIS and the script-based GMT is that each script \hl{is technically }defined in the lines of code. \hl{This guarantees plotted map to be resulted as designed,} in contrast to the hidden flaws and occasional errors of GIS interface. In other words, both the data processing and data visualization in GMT are defined from a fixed commands of code lines that handle \hl{the} data \hl{in a} straightforward way and results in the programmed output.  
 
 \section{Conclusions}
 
@@ -337,7 +334,7 @@ Finally, using the presented map of PDSI the results can be further evaluated fo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\funding{The APC was fully covered by the \emph{Multidisciplinary Digital Publishing Institute (MDPI)} based on a special invitation for publication of this article by the Editorial Board of \emph{ISPRS International Journal of Geo-Information (IJGI)}.}
+\funding{The APC was fully covered by the \emph{Multidisciplinary Digital Publishing Institute (MDPI)} based on a special invitation for publication of this article by the Editorial Board of the \emph{ISPRS International Journal of Geo-Information (IJGI)}.}
 
 \institutionalreview{Not applicable.}
 
@@ -345,7 +342,7 @@ Finally, using the presented map of PDSI the results can be further evaluated fo
 
 \dataavailability{The GitHub repository of the author with available GMT scripts: \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts} (accessed on 25 June 2022)}
 
-\acknowledgments{The author thanks the anonymous reviewers for their comments and suggestions on the initial version of the text.}
+\acknowledgments{The author cordially thanks the three anonymous reviewers for their comments, corrections and suggestions, which improved the initial version of the manuscript.}
 
 \conflictsofinterest{The author declares no conflict of interest.} 
 
