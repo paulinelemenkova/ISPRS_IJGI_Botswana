@@ -204,7 +204,7 @@ To be more illustrative, examples of the code snippets are provided below with e
 	\item	Making background raster grid with 50\% translucency: $‘gmt grdimage bw_relief.nc -Cpauline.cpt -R19.5/29.5/-27/-17.5 -JM6.5i -I+a15+ne0.75 -t50 -Xc -P -K > \$ps’$
 	\item Adding isolines: $‘gmt grdcontour bw_relief1.nc -R -J -C200 -A200+f7p,26,\\darkbrown -Wthinner,darkbrown -O -K >> \$ps’$
 	\item Adding coastlines, country borders and rivers: $‘gmt pscoast -R -J -Ia/thinner,blue -Na -N1/thicker,red -W0.1p -Df -O -K >> \$ps’$
-	\item Adding text for cities: $‘gmt pstext -R -J -N -O -K -F+f13p,0,black+jLB -Gwhite@60 >> \$ps << EOF 25.0 -24.57 Gaborone EOF’$, where the plotted text is located between the two EOF (which is a common abbreviation for the End Of File expression).
+	\item Adding text for cities: $‘gmt pstext -R -J -N -O -K -F+f13p,0,black+jLB -Gwhite@60 >> \$ps << EOF 25.0 -24.57 Gaborone EOF’$, where the plotted text is located between the two EOF (\hl{a }common abbreviation for the End Of File expression).
 	\item Changing text parameters: $'gmt pstext -R -J -N -O -K -F+f10p,23,blue2+jLB >> \$ps << EOF 24.5 -20.45 Makgadikgadi 24.6 -20.62 (salt pans) EOF'.$
 	\item Adding a GMT logo: $‘gmt logo -Dx7.3/-2.8+o0.1i/0.1i+w2c -O -K >> \$ps’$
 	\item Adding a subtitle: $‘gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y11.8c -N -O -F+f10p,0,black+jLB >> \$ps << EOF 2.0 9.0 Digital elevation data: \\GEBCO/SRTM, 15 arc sec (ca. 450 m) resolution grid EOF’.$
@@ -214,9 +214,7 @@ To be more illustrative, examples of the code snippets are provided below with e
 	\item $‘gmt psxy -R -J -O -K -T  -X-\${x0} -Y-\${y0} >> \$ps’$: here the plotting is finished, this part of the script is ready and ‘-O -K’ signifies the overlay and code continuation. 
 \end{enumerate}
 
-Using the same approach of scripting presented above, all the other climate maps have been plotted suing the datasets from the TerraClimate and visualized in the Mercator projection for all the maps for compatibility reasons. 
-
-The most essential code snippets used for plotting climate maps are as follows: 
+Using the same approach of scripting presented above, all the other climate maps have been plotted \hl{using} the\hl{ }TerraClimate \hl{open source dataset for the year 2018}. The most essential code snippets used for plotting climate maps are as follows: 
 
 \begin{itemize}
 	\item	Extracting a subset of AET for Botswana: $‘gmt grdcut TerraClimate\_aet_2018.nc \\-R19.5/29.5/-27/-17.5 -Gbw\_aet.nc’.$
@@ -226,9 +224,7 @@ The most essential code snippets used for plotting climate maps are as follows:
 	\item Using the \hl{Geospatial Data Abstraction Library (GDAL)} library for analysis of the statistics for $T_{min}$ raster grid of Botswana: $‘gdalinfo -stats bw\_tim.nc’.$ 
 \end{itemize}
   
-    The general climate maps (\hl{$T_{min}$/$T_{max}$}, soil moisture, precipitation, downward surface shortwave radiation, vapor pressure, vapor pressure deficit and wind speed) and the derived reference indices (PDSI, PET, AET) used for Botswana originated from TerraClimate open source dataset for the year 2018. 
-
-All the maps were plotted in the Mercator projection in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for compatibility and agreement of the map series. The maps were adjusted for the extent of Botswana and surrounding regions (neighboring countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here the '-R19.5/29.5/-27/-17.5' stands for the coordinates of the atusy area in WESN (West-East-South-North) convention with coordinates of southern hemisphere as negative values.
+The general climate maps \hl{included following parameters plotted on the maps:} \hl{$T_{min}$/$T_{max}$}, soil moisture, precipitation, downward surface shortwave radiation, vapor pressure, vapor pressure deficit and wind speed) and the derived reference indices (PDSI, PET, AET)\hl{.} All the maps were plotted \hl{using }Mercator projection \hl{for compatibility reasons,} in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for compatibility and agreement of the map series. The maps were adjusted for the extent of \hl{the territory of} Botswana and \hl{the} surrounding regions (\hl{neighbouring} countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here the '-R19.5/29.5/-27/-17.5' stands for the coordinates of the atusy area in WESN (West-East-South-North) convention with coordinates of \hl{the} southern hemisphere as negative values.
 
 \begin{figure}[H]
 \begin{center}
@@ -238,6 +234,8 @@ All the maps were plotted in the Mercator projection in order to achieve relevan
 \label{fig:07}
 \end{figure}
 %\unskip 
+
+\hl{The implementation of the GMT algorithm for cartographic data processing is straightforward. In addition to the parameters of modules needed to plot the maps, the}
 
 \hl{This work} accepts the Palmer Drought Severity Index (PDSI) for visualizing the strength of drought over Botswana. Besides the PDSI, there are other types of indices used for meteorological and climate research, for instance: Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI)\hl{ }\cite{Byakatonda2018b,Byakatonda2018c} or drought models \cite{Ujeneza,AkinyemiAbiodun}. The PDSI was chosen since this is a reliable and reputable index known since its development\hl{ }\cite{Palmer} based on \hl{the} measurement of dryness \hl{using data on} precipitation and temperature. 
 
@@ -328,7 +326,9 @@ Currently, most geospatial data processing tasks and the analysis of geo-informa
 
 The presented paper contributed to the regional study of Botswana with dominating semi-arid climate and vast areas lacking surface water and a diverse types landscapes including a complex mosaics of grass, sands and savanna \cite{Campbell}. Routinely based on processing a variety of thematic datasets, environmental and applied geological studies depict spatio-temporal trends in ecosystems related to the Earth’s surface and processesusing topographic, climate and environmental datasets  \cite{AkinyemiKgomo,Ishimoto,Klauco2013,Eze,Lemenkova202212,Chipanshi,Klauco2017}. \hl{Practical application of the presented maps} includes environmental assessment and agricultural analysis in Botswana\hl{, as }it is strongly affected by climate variability and characteristics, such as \hl{period of droughts, extreme temperatures and vapour pressure, as well as seasonal changes in rainfalls} \cite{Maruatona}.
 
-As a recommendation for future studies could be suggested advances in the data processing which include the assessment of the correlation between the selected environmental and climate variables, their location (distribution of the fields with similar values) and temporal variations, the climate parameters (PDSI, AET, PET, \hl{$T_{max}$/$T_{min}$}, soil moisture, precipitation intensity and repeatability with respect to local topography. The results of this study continue existing investigations on complex interrelationships between climate, environmental and topographic factors in Botswana \cite{McGill,Maoyi,Ramberg2006b,Maoyi}, as well as their complex effects on the social dynamics in the country  \cite{Asefa,Vanderpost1995,Rahm,Mogomotsi}. This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determination of the possibility of droughts appearance using several multi-temporal climate datasets for different years and decades in Botswana. 
+As a recommendation for future studies could be suggested advances in the data processing which include the assessment of the correlation between the selected environmental and climate variables, their location (distribution of the fields with similar values) and temporal variations, the climate parameters (PDSI, AET, PET, \hl{$T_{max}$/$T_{min}$}, soil moisture, precipitation intensity and repeatability with respect to local topography. \hl{Furthermore, as a direction for future research, one may also consider basic statistical data analysis, which is possible in GMT, besides mapping. For instance, plotting histograms of data distribution for climatic and topographic indicators can be performed using module 'pshistogram'.}
+
+The results of this study continue existing investigations on complex interrelationships between climate, environmental and topographic factors in Botswana \cite{McGill,Maoyi,Ramberg2006b,Maoyi}, as well as their complex effects on the social dynamics in the country  \cite{Asefa,Vanderpost1995,Rahm,Mogomotsi}. This includes Kalahari Desert, Makgadikgadi Pan, Okavango Delta), for determination of the possibility of droughts appearance using several multi-temporal climate datasets for different years and decades in Botswana. 
 
 Finally, using the presented map of PDSI the results can be further evaluated for the four types of drought classification according to the regional setting of Botswana: four types of droughts: i) meteorological drought (dominating dry weather conditions); ii) hydrological drought (noticeable low water supply); iii) agricultural drought (crops are being affected); iv) socioeconomic drought. Here the 4th type is affecting social system and well-being of the population the most. Based on the TerraClimate and GEBCO datasets, this study visualized the series of climate and environmental inventory maps on Botswana for 2018 using GMT scripting.
 
