@@ -1,0 +1,1469 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[ijgi,article,accept,pdftex,moreauthors]{Definitions/mdpi} 
+% For posting an early version of this manuscript as a preprint, you may use "preprints" as the journal and change "submit" to "accept". The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
+
+%--------------------
+% Class Options:
+%--------------------
+
+%=================================================================
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2022}
+\copyrightyear{2022}
+\externaleditor{Academic Editor: \hl{Firstname Lastname} %MDPI: please confirm if need add.
+}
+\datereceived{} 
+%\daterevised{} % Only for the journal Acoustics
+\dateaccepted{} 
+\datepublished{} 
+%\datecorrected{} % Corrected papers include a "Corrected: XXX" date in the original paper.
+%\dateretracted{} % Corrected papers include a "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%------------------------------------------------------------------
+% The following line should be uncommented if the LaTeX file is uploaded to arXiv.org
+%\pdfoutput=1
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{gensymb}
+\usepackage[super]{nth}
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Mapping Climate Parameters over the Territory of Botswana Using GMT and Gridded Surface Data from TerraClimate}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Mapping Climate Parameters over the Territory of Botswana Using GMT and Gridded Surface Data from TerraClimate}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{Polina Lemenkova \orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Lemenkova, P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address[1]{%
+ \hl{Laboratory of Image Synthesis and Analysis (LISA),} %MDPI: The provided information should be arranged from subordinate to superior. so we adjusted the order, please confirm
+ École polytechnique de Bruxelles (Brussels Faculty of Engineering), Université Libre de Bruxelles (ULB),  Building L, Campus de Solbosch CP131/3, Avenue Franklin D. Roosevelt 50, B-1050 Brussels, Belgium; \hl{polina.lemenkova@ulb.be or pauline.lemenkova@gmail.com; } %MDPI: please confirm if the emails is correct.
+Tel.:~+32-471860459}
+
+% Contact information of the corresponding author
+%\corres{Correspondence: polina.lemenkova@ulb.be;  (P.L.)}
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{This articles presents a new series of maps showing the climate and environmental variability of Botswana. Situated in southern Africa, Botswana has an arid to semi-arid climate, which significantly varies in its different regions: Kalahari Desert, Makgadikgadi Pan and Okavango Delta. While desert regions are prone to droughts and periods of extreme heat during the summer months, other regions experience heavy downpours, as well as episodic and unpredictable rains that affect agricultural activities. Such climatic variations affect social and economic aspects of life in Botswana. This study aimed to visualise the non-linear correlations between the topography and climate setting at the country's scale. Variables included \highlighting{T °C min, T °C max,} %MDPI: we added the space between T°Cmin, please confirm.
+ precipitation, soil moisture, evapotranspiration (PET and AET), downward surface shortwave radiation, vapour pressure and vapour pressure deficit (VPD), wind speed and Palmer Drought Severity Index (PDSI). The dataset was taken from the TerraClimate source and GEBCO for topographic mapping. The mapping approach included the use of Generic Mapping Tools (GMT), a console-based scripting toolset, which enables the use of a scripting method of automated mapping. Several GMT modules were used to derive a set of climate parameters for Botswana. The data were supplemented with the adjusted cartographic elements and inspected by the Geospatial Data Abstraction Library (GDAL). The PDSI in Botswana in 2018 shows stepwise variation with seven areas of drought: (1) $-$3.7 to $-$2.2. (extreme); (2) $-$2.2 to $-$0.8 (strong, southern Kalahari); (3) $-$0.8 to 0.7 (significant, central Kalahari; (4) 0.7 to 2.1 (moderate); (5) 2.1 to 3.5 (lesser); (6) 3.5 to 4.9 (low); (7) 4.9 to 6.4 (least). The VPD has a general trend towards the south-western region (Kalahari Desert, up to 3.3), while it is lower in the north-eastern region of Botswana (up to 1.4). Other values vary respectively, as demonstrated in the presented 12 maps of climate and environmental inventory in Botswana.}
+
+% Keywords
+\keyword{Africa; Botswana; cartography; climate; computer science; data science; drought; GMT; mapping; programming} 
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Mapping climate parameters using advanced cartographic methods is presently the subject of intense research. Approaches to image processing~\cite{Turner,Hamandawana}, climate data modelling~\cite{MaoyiAbiodun} and landscape studies~\cite{Segobye} have largely converged on the requirements for the importance of cartographic visualisation for a proper environmental analysis for feature extraction and evaluation. While standard methods of handling spatial data such as Geographic Information Systems (GIS) are popular for climate and environmental mapping~\cite{Ceccato,Sherbinin,Herslund}, superior performance has been demonstrated by incorporating advanced scripting solutions for complex cartographic tasks. A large variety of spatial data processing paradigms have been applied to the problem of cartographic visualisation, including spatial analysis, data management and simulation, data retrieval from the remote sensing sources, pattern recognition and data-driven modelling.
+
+One of the most popular GIS-based modelling tools for cartographic data handling is presented by the commercial software ArcGIS and its open source analogue QGIS. These software structure spatial data as visible layers in the Graphical User Interface (GUI) where layers represent thematically structured and semantically close data types. Such structure enables connections between spatial variables through the analysis of attributive tables where metadata are stored in GIS. Thus, the cartographic variables are kept within each layer so that the parameters of the data are conditionally independent given the semantic connectivity and identical projection. The factorial nature of these data enables GIS-based mapping, which forms the basis for the majority of existing maps. 
+
+However, both as a data visualisation and mapping tool and especially as a method for spatial data modelling, GIS-based methods have shown certain drawbacks. The data processing in GIS is mostly performed using active interaction of the user for traditional mapping workflow where many handmade operations needed to be performed manually. Besides a time-consuming workflow for mapping, another drawback of the GIS methods is that, unlike scripting methods, the complete workflow processing is not automated. At the same time, automated methods in cartography significantly increase the accuracy and precision of plotting. As a result, the usual strategies of mapping largely benefit from applying the programming approach in cartography.
+
+This paper presents the use of scripting cartographic toolset Generic Mapping Tools (GMT)~\cite{Wessel} for a thematic mapping of Botswana. The GMT differs principally from the traditional GIS approaches. It is defined as a set of commands controlled using embedded programming language, which defines each cartographic parameters using a line of code. In such a way, the cartographic processing is being performed by  writing and executing a script, without the need for GUI and the layer-based paradigm of GIS. Such a performance enables us to finely tune the selected parameters of cartographic plot.%Check menaing retained 
+
+As a technical instrument for mapping, the GMT is interesting in that, like programming languages, e.g., Python or R, its syntax encodes the conditional parameters of visualised objects using built-in language with commands and options while simultaneously maintaining the simple independent structure of map which does not require creating layers and a GIS project as such. This underlies the efficient performance of GMT as against the GIS workflow. Moreover, the GMT effectiveness is accomplished by the flexibility of data formats, integration with a variety of tools, including Geospatial Data Abstraction Library (GDAL) and Python and exploiting multi-format data through straightforward importing and reformatting.
+
+In this study, the GMT was used for mapping Botswana using a set of climate and environmental variables. Botswana is a country situated in southern Africa (Figure~\ref{fig:01}), where drought is a reoccurring natural hazard~\cite{Batisani2011}. The interest in the occurrence and distribution of droughts and climatic extremes in Botswana has been driven by the need to analyse possible consequences from droughts that affect both social and environmental aspects of the country. Such issues include, for instance, range degradation~\cite{Vanderpost} and the evolution and adaptation of agro-pastoral livelihoods to recurrent droughts~\cite{Mogotsi}. Moreover, land changes  results in exposed dryland agricultural landscapes, which in turn involves expanding bare lands and rocky surfaces~\cite{Akinyemi}. Biochemical analysis includes the evaluation of the effects from evapotranspiration on the evolution of dissolved inorganic carbon in the north-western Botswana~\cite{Atekwana}. Other case includes climate assessment and its effects on vegetation~\cite{Ringrose2002}. 
+
+A variety of the environmental studies in Botswana are focused on the analysis of rainfall repeatability, intensity, and consequences in different regions of the country. Such and similar studies often include the modelling of the meteorological data, which enables both retrospective assessment and prognostic modelling of climate change variations to be performed, aiming to predict and mitigate possible effects from climatic extremes. For instance, \hl{ref.}%MDPI: ref. can not be as beginning, so we added the ref., please confirm
+~\cite{Kenabatho} performed a retrospective analysis of climate effects in the arid environment of Botswana to determine changes in rainfall series and to identify correlations between rainfall and temperature. A prognosis estimating the beginning and end of summer rainfalls may highlight regional uncertainties in rainfalls~\cite{Byakatonda2019}. Rainfall variability and trends for analysis of their effects on vulnerable dryland agriculture through climate variation are important for climate risk management in Botswana~\cite{Batisani}.
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_01.jpg} 
+%\end{center}
+\caption{Topographic map of Botswana. Mapping: GMT. Source: author.}
+\label{fig:01}
+\end{figure}
+%\unskip
+
+Mapping climate parameters is a challenging task with many applications, such as environmental risk assessment, agricultural monitoring, and natural resources management. A key ingredient to cartographic data visualisation is the design of an effective workflow and the selection of software tools. A traditional approach to this task is to apply Geographic Information System (GIS) for spatial data processing. Mapping is then performed by conventional GIS programs with existing Graphical User Interface (GUI). GIS is a commonly accepted conceptual tool in cartographic data processing, widely documented in the existing works~\cite{Longley,Chrisman,VANKOVA2022708}. Existing cartographic methods following the GIS approach may make use of well-known methods of data modelling and visualisation, as reflected in a variety of reports~\cite{ijgi11050313,Visvalingam,ijgi10110780,Lemenkova202105,ijgi11050297}.
+
+To progress beyond the traditional methods of GIS, the current investigation presents an alternative approach to cartographic data processing using console-based scripts of GMT~\cite{Wessel}. The GMT utilises a modular system of GMT which automatically decomposes the complete cartographic workflow into a series of continuous piecewise components of scripts, i.e., lines of code written in GMT syntax. In such a way, the script handles the complete process of spatial data from data formatting and modelling to generating a final layout, presenting a map, and converting the output data. In view of this, in this paper we study the benefits of exploiting the GMT scripting toolset for mapping environmental and climate parameters in Botswana.
+
+The goal of the presented research is to demonstrate the functionality of the console-based scripting in GMT for climate and environmental mapping of Botswana. To contribute to the existing climate studies of Botswana, this study presented a series of the new maps based on the open datasets. The maps are made by command line which increased the speed and accuracy of mapping and represented spatial data of various complexity. 
+
+The general objective was to map the variability of environmental and climate parameters of the country using the TerraClimate dataset. The variables in this dataset are designed such that one can evaluate the GMT approach with respect to various data dimensions and various parameters over the study area. Specifically for the territory of Botswana, while mapping the TerraClimate dataset, we address handling and visualising the diverse extent of values in climate parameters, from small to large ones. %Check meaning retained
+This is important, since difficulties in spatial data processing arise when data have contrasting dimensions, e.g., temperature, topography, and PDSI values differ and  various colour scales for proper mapping and effective cartographic visualisation are required, which was managed using the GMT solutions.
+
+The specific objective was to support the environmental and climate analysis in Botswana through the advanced cartographic visualisation. It involves the analysis of the distribution of temperature extremes in Botswana, occurrence of drought events, variation in the potential and actual evapotranspiration visualised on the maps. The correlations between the soil moisture and precipitation, climate parameters and topographic landforms can be considered for land management~\cite{REED2010149,Jovanovic,Basupi2017,Mfundisi}, crop and vegetation monitoring~\cite{9792979,Tsheboeng}, meteorological evaluation~\cite{Moses2019}, nature conservation, and sustainable development in Botswana~\cite{Mogome,Lange}. In light of the above, the focus of the presented research is on the cartographic application of novel programming methods for climate and environmental assessment of Botswana, which includes the following objectives:
+
+\begin{enumerate}[label=\roman*]
+	\item	To produce a series of climatic maps of Botswana and their associated topographic, environmental, and climate attributes, referenced to the regional and local geospatial geographic scale of the country; 
+	\item To perform script-based mapping techniques, which present a new cartographic methodology. This includes the demonstrating of the programming approach of GMT, which differs from the traditional GIS,  because it integrates the cartographic methods and the programming syntax;
+	\item To apply the open source datasets of GEBCO and TerraClimate with a spatial extent of Botswana, aimed at addressing and visualising the occurrence, trends and strength of different climate variables associated with environmental factors;
+	\item To visualise the climate parameters of Botswana: temperature extremes $T_{min}$/$T_{max}$, precipitation, soil moisture, potential evapotranspiration (PET), actual evapotranspiration (AET), downward surface shortwave radiation, vapour pressure (VP), vapour pressure deficit (VPD), wind speed, Palmer Drought Severity Index (PDSI).
+\end{enumerate}
+    
+The automated methods and independent modules of GMT were used to process climate data showing mapping climate and environmental variables of Botswana. This included reference to the cartographic workflow of GMT, described in the existing technical literature with examples of using the program~\cite{Kasalica,Lemenkova2019106,8588718,Lemenkova202205,4814952,Lemenkova201994}. Using a scripting approach, this paper presents an alternative cartographic algorithm for the stable and accurate mapping and visualisation of the climate parameters over Botswana in the presence of various nonlinear effects from topography and climate on the environmental setting of the country, following the examples in the existing studies~\cite{6049609,5649810}
+
+\section{Study Area}
+
+\subsection{Relief}
+The topography of Botswana has its highest points along the south-east regions of the country, in the Kalahari Basin. In the rest of the regions, the landscapes are levelled, which creates unique climate setting. The territory of the country is covered by a diverse range of landscapes, including a complex mosaic of grass, sands, and savanna~\cite{Campbell}. The Okavango Delta is presented by the alluvial fan of uniform topographic gradient with complex patterns of vegetation, hydrology, and sedimentation~\cite{Ellery}. 
+
+A notable topographic feature of Botswana is the Kalahari Desert, which occupies up to 70\% of the territory of country. The Kalahari Desert is mostly covered by red sands and sandstones with quartzose sediments and sandstones. Such biochemical composition makes it prone to chemical weathering, producing high volumes of clay minerals~\cite{Franchi}. Together with the extreme degrees of temperature and occasional fires, the geologic and soil setting of the Kalahari Desert limits the distribution of vegetation and controls the types of dominating plants. As a result, the Kalahari is mostly covered by species adapted to such environmental conditions~\cite{Masunga,Elliott}. 
+
+A contrasting example of landscape is the Makgadikgadi Pan, which is a salt pan with specific dune, barchan, and crescentic sand landforms, located over the dry savanna in the north-eastern area of the country and formed as a tectonic surface expression in the Makgadikgadi Rift Zone~\cite{ECKARDT2016115,MCFARLANE2015108}. Being one of the largest salt flats in the world~\cite{Burrough}, it impacts the neighbouring lands through the soil system. Thus, the eolian salts from the evaporite-covered Makgadikgadi Depression, such as chlorides, sodium, and bicarbonates, are being transported to the soil in the adjacent regions. These soluble salts are then further transported down to the ground soil water, which significantly degrades water quality~\cite{Wood}.
+
+\subsection{Climate}
+Botswana is a country with dominating semi-arid climate, vast areas lacking surface water, and high extreme temperatures, as seen in Figures~\ref{fig:02} and \ref{fig:03}. 
+    
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_02.jpg} 
+%\end{center}
+\caption{T °C minimum ($T_{min}$) in Botswana. Mapping: GMT. Source: author.}
+\label{fig:02}
+\end{figure}
+%\unskip 
+   
+Due to the extreme temperatures during the summer period and droughts~\cite{Hemming,Karikari}, Botswana is one of the world’s least populated countries. The population of Botswana needs to adapt to special living setting and adjust their social activities as they are constrained by the environmental factors: livestock diseases, human--wildlife conflicts, drought, water supply deficit, resource scarcity, fragmented landscapes, and bush encroachment of savannah ecosystems~\cite{Badimo,Basupi,Charis}. Furthermore, specific environmental and climate conditions of the country and periods of severe drought contribute to the development of diseases, such as malaria or cholera. This is proved in several existing studies that analysed a correlation between the distribution of epidemiological diseases and environmental variations in Botswana: summer rainfalls, mean annual temperatures, and topographic altitude
+\cite{Craig,Tonnang,Motsholapheko,Charnley}. At the same time, extreme temperature varies regionally, according to the distribution of landforms, which is also influenced by water areas and rivers, see Figure~\ref{fig:03}. 
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_03.jpg} 
+%\end{center}
+\caption{T °C maximum (tmax) in Botswana. Mapping: GMT. Source: author.}
+\label{fig:03}
+\end{figure}
+%\unskip
+
+The links between the topographic structure of the country and climate processes can be revealed through a regional analysis of the variation of climate parameters with regard to the topography. For example, a notable landform of Botswana is presented by the Okavango Delta, which is located in the north-western part of the country (Figure~\ref{fig:01}). It is one of the world's largest inland deltas, losing about 98\% of its water through evapotranspiration~\cite{Moses}. The wetlands of the Okavango Delta are notable for the variety of ecosystems present, with a large biodiversity level in fauna and flora. The region of Okavango provides the livelihood of the local communities as well as the a tourism destination that substantially contributes to the revenue of Botswana~\cite{Milzow,Wolski}. 
+
+In such regions, special measures and actions were introduced as state subsidies for drought relief management aimed at food and nutrition security~\cite{Belbase}. The assessment of social vulnerability to droughts in Botswana acts as a measure for the reduction of climate and environmental disaster risks~\cite{Dintwa}. \hl{Ref.} %MDPI: ref. can not be as beginning, so we added the ref., please confirm
+~\cite{Byakatonda2018a} recognised that hydrological droughts in Botswana may have several months of lag after the climatological droughts, which shows a complex and non-linear correlation between the hydrological, topographic and environmental factors associated with climate variability, which depend on precipitation pattern, Figure~\ref{fig:04}.  
+   
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_04.jpg} 
+%\end{center}
+\caption{Precipitation in Botswana (2018). Mapping: GMT. Source: author.}
+\label{fig:04}
+\end{figure}
+%\unskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data}
+	This study used a TerraClimate, a free global climate dataset~\cite{Abatzoglou}, with publicly available data: \href{https://climate.northwestknowledge.net/TERRACLIMATE/index_directDownloads.php}{https://climate.northwestknowledge.net/TERRACLIMATE}. \hl{The TerraClimate} %MDPI: please add the accessed date.
+ includes several variables showing climate and environmental parameters, based on regular measurements of relevant data. These include the following key parameters: extreme air temperatures (minimum/maximum), precipitation, climatic water deficit, soil water equivalent, runoff, soil moisture, Palmer Drought Severity Index (PDSI), reference (potential) precipitation based on theoretical computations, actual evapotranspiration based on real measurements using remote sensing data, downward shortwave radiation at the surface (SRAD), vapour pressure (vap), vapour pressure deficit (vpd) and wind speed. 
+	
+	The TerraClimate dataset presents reference data for investigation of hydrological and climatic changes, which can be applied for agricultural modelling, such as crop water demand estimates, agricultural plant zoning, and natural resource management.  To analyse the behaviour of these variables and variability over the territory of Botswana. The hydrological applications of TerraClimate include, for instance, surface runoff simulation and estimation of basin budget. %Removed this: check meaning retained - The meteorological reference include.
+	 Further applications of TerraClimate can be applied to the modelling vegetation health and forest monitoring using correlations between the severity of droughts, hydrological and temperature regime and mapping soil moisture, Figure~\ref{fig:05}.
+ 
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_05.jpg} 
+%\end{center}
+\caption{Soil moisture in Botswana. Mapping: GMT. Source: author.}
+\label{fig:05}
+\end{figure}
+%\unskip
+
+	The important part of terraClimate variables is presented by the Palmer Drought Severity Index (PDSI) which was used for visualising the strength of drought over the territory of Botswana. Besides the PDSI, there are other types of indices used for meteorological and climate research, for instance: Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI)~\cite{Byakatonda2018b,Byakatonda2018c} or drought models~\cite{Ujeneza,AkinyemiAbiodun}. However, the PDSI was chosen due to its availability in TerraClimate dataset. Additionally, it is a reliable and reputable index, known since its development~\cite{Palmer}. The PDSI is based on the measurement of dryness using data on precipitation and temperature. 
+		
+	The topographic mapping was based on the GEBCO dataset covering the Earth's \hl{surface,} \href{https://www.gebco.net/}{https://www.gebco.net/}~\cite{Ermel,Schenke2016}. GEBCO has two significant advantages as a topographic data source: it is open source and publicly available and has an unprecedentedly high resolution (15 arc-second). Its high topographic precision is inherently influenced by the algorithms of data capture, processing and modelling~\cite{Bracke,Smith,Lemenkova202211}. The GEBCO data is well suited to reliably visualise the topography and geomorphic structures in the processed maps, due to its high resolution, accuracy, and precision~\cite{Jakobsson,Lemenkova202112,Hall,Lemenkova202012,Marks}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methodology}
+
+The methodology of recent environmental studies is mostly focused on utilising the traditional approaches of data modelling associated with the GUI-based GIS\linebreak software~\cite{Kolawole,Lemenkova202206,Ringrose1996,Lindh2021a,Manisa,Lemenkova202141,Ringrose1999,Lemenkova202125,Pachka,Pricope,Lemenkova202021}. In contrast, this study is inspired by the approach of GMT~\cite{Wessel}, which performs illustrative mapping through running the scripts via the command line from the console, e.g., Figure~\ref{fig:06}. This yields print-quality maps based on the raster and vector layers processed using a combination of various GMT modules, as required in scripting. 
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_06.jpg} 
+%\end{center}
+\caption{Potential evapotranspiration (PET). Data: WorldClim. Mapping: GMT. Source: author.}
+\label{fig:06}
+\end{figure}
+%\unskip 
+
+GMT has gained popularity in topographic, marine geologic and geophysical mapping where highly detailed and accurate data for modelling the phenomena of the Earth processes and structures are essential~\cite{Virden,Lemenkova202127,Senturk,Lemenkova202017,Lindh202208,Lemenkova202018,Shietal2009}.  
+
+The 12 GMT scripts used for plotting maps presented in this manuscript are publicly availably in the open GitHub repository of the author with a full access to the GMT \hl{codes:}
+ \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts}. In contrast to classical GIS where only the GUI-based data processing with pre-defined functions can be performed, in a GMT scenario much more geo-information can be adjusted using flexible functionality of the code syntax: layout, design, inserted maps, added cartographic elements, scale, etc. In particular, the screen position of the legend map in the final layout can be modified individually, either horizontally or vertically, for each map using a special module 'psscale', Figure~\ref{fig:05}. 
+ 
+ The ability of GMT to visualise either the cartographic elements or apply the pre-defined colour palettes to the raster image surfaces is dependent on the adjusted settings (‘flags’) of that particular module~\cite{Lemenkova202213}. Adding cartographic elements can be a monotonous workflow that requires time and might involve possible errors by handmade drawing. A possibility provided by GMT in such a case is to plot all these elements using specially designed modules, e.g., ‘grdimage’ for visualising raster image, ‘grdcontour’ for adding isolines, ‘psscale’ for adding colour legend, ‘psbasemap’ for adding scale bar, directional rose. This reduces the plotting errors while keeping the mapping time reasonable to render fewer time-consuming trials for each map layout.
+
+GMT is capable of visualising raster and vector data with each parameter adjusted in a line of the code written using GMT syntax. Automation of mapping by GMT will always result in a significant improvement of workflow, increase of mapping accuracy and reduction of possible faults. Thus, the cornerstone of the GMT approach is to automate cartographic workflow by applying separate modules for each task using embedded syntax. 	
+
+Comparing GMT approach instead of GIS, the GMT has three advantages. First, it rapidly plots files with very large size (over 500 MB). Second, it can manipulate simultaneously multiple layers of bitmap or vector data as cartographic layers using separate lines of code in a sript for each layer. Third, it process effectively multi-format raster data (NetCDF, geo-TIFF, IMG, etc). Further, files can be visualised in either embedded GMT-based colour palettes or using imported ones. Finally, the georeferenced data can be reprojected using a variety of projection libraries, available in GMT. Likewise, annotating the ticks can be adjusted using default GMT setting, e.g., $MAP\_FRAME\_AXES=wESN$ for ignoring the western annotations.
+
+To be more illustrative, examples of the code snippets are provided below with explanations. Figure~\ref{fig:01} shows the topographic map of Botswana. Its visualisation has been made using a sequence of the GMT codes, of which the most important and  essential lines of code are the following:
+
+\begin{enumerate}
+	\item	Making background raster grid with 50\% translucency: $‘gmt grdimage bw_relief.nc -Cpauline.cpt -R19.5/29.5/-27/-17.5 -JM6.5i -I+a15+ne0.75 -t50 -Xc -P -K > \$ps’$
+	\item Adding isolines: $‘gmt grdcontour bw_relief1.nc -R -J -C200 -A200+f7p,26,\\darkbrown -Wthinner,darkbrown -O -K >> \$ps’$
+	\item Adding coastlines, country borders and rivers: $‘gmt pscoast -R -J -Ia/thinner,blue -Na -N1/thicker,red -W0.1p -Df -O -K >> \$ps’$
+	\item Adding text for cities: $‘gmt pstext -R -J -N -O -K -F+f13p,0,black+jLB -Gwhite@60 >> \$ps << EOF 25.0 -24.57 Gaborone EOF’$, where the plotted text is located between the two EOF (a common abbreviation for the End Of File expression).
+	\item Changing text parameters: $'gmt pstext -R -J -N -O -K -F+f10p,23,blue2+jLB >> \$ps << EOF 24.5 -20.45 Makgadikgadi 24.6 -20.62 (salt pans) EOF'.$
+	\item Adding a GMT logo: $‘gmt logo -Dx7.3/-2.8+o0.1i/0.1i+w2c -O -K >> \$ps’$
+	\item Adding a subtitle: $‘gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y11.8c -N -O -F+f10p,0,black+jLB >> \$ps << EOF 2.0 9.0 Digital elevation data: \\GEBCO/SRTM, 15 arc sec (ca. 450 m) resolution grid EOF’.$
+	\item Plotting the insert map (round globe in the lower right bottom corner of the map in Figure~\ref{fig:01} showing the country’s location with the map of Africa): $‘gmt pscoast --MAP\_GRID\_PEN\_PRIMARY=thinnest,white -Rg -JG28.0/-2.0S/\$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -EBW+gred -Sdodgerblue -O -K -X\$x0 -Y\$y0 >> \$ps’.$ This code utilises the ‘BW’ abbreviation of Botswana from the ISO 3166-1 alpha-2 countries codes.
+	\item Specifying the location of the insert map on the main map in Figure~\ref{fig:01}: $‘gmt psbasemap -R -J -O -K -DjBR+w3.4c+o-0.2c/-0.2c+stmp >> \$ps’$. Here the ‘BR’ signifies the ‘bottom right’ specification for the insert globe map plotting.
+	\item $‘read x0 y0 w h < tmp’$: here, the temporary file with the data is created.
+	\item $‘gmt psxy -R -J -O -K -T  -X-\${x0} -Y-\${y0} >> \$ps’$: here, the plotting is finished, this part of the script is ready, and ‘-O -K’ signifies the overlay and code continuation. 
+\end{enumerate}
+
+Using the same approach of scripting presented above, all the other climate maps have been plotted using the TerraClimate open source dataset for the year 2018, Figures~\ref{fig:07} and ~\ref{fig:08}. 
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_07.jpg} 
+%\end{center}
+\caption{Actual evapotranspiration (AET) in Botswana. Mapping: GMT. Source: author.}
+\label{fig:07}
+\end{figure}
+%\unskip 
+
+The most essential code snippets used for plotting climate maps are as follows: 
+
+\begin{itemize}
+	\item	Extracting a subset of AET for Botswana: $‘gmt grdcut TerraClimate\_aet_2018.nc \\-R19.5/29.5/-27/-17.5 -Gbw\_aet.nc’.$
+	\item Adding grids for all the maps: $‘-Bpxg1f0.5a1 -Bpyg1f0.5a1 -Bsxg1 -Bsyg1’.$ Here, the ‘f’ stands for the frequency of minor ticks, ‘g’ for major, and ‘a’ for annotations.
+	\item Converting PostScript file to the image JPG file with 720 dpi resolution using GhostScript (PET of Botswana): $‘gmt psconvert BW_PET.ps -A0.5c -E720 -Tj -Z’.$ 
+	\item Generating colour palette and adjusting it for the extent of values in PDSI map of Botswana: $‘gmt makecpt -Cqual-mixed-12.cpt -V -T-5.1/12.1 > pauline.cpt’$.
+	\item Using the Geospatial Data Abstraction Library (GDAL) library for analysis of the statistics for $T_{min}$ raster grid of Botswana: $‘gdalinfo -stats bw\_tim.nc’.$ 
+\end{itemize}
+  
+The general climate maps included following parameters plotted on the maps: $T_{min}$/$T_{max}$, soil moisture, precipitation, downward surface shortwave radiation, vapour pressure, vapour pressure deficit, and wind speed, and the derived reference indices (PDSI, PET, AET). All the maps were plotted using Mercator projection for compatibility reasons, in order to achieve relevant matching coordinate reference grid at the identical spatial extent and congruent resolution in each map for the compatibility and agreement of the map series. The maps were adjusted for the extent of the territory of Botswana and the surrounding regions (neighbouring countries) by subtracting the grids from the corresponding NetCDF files using ‘-R’ module, e.g.,: $'gmt grdcut TerraClimate\_tmin\_2018.nc -R19.5/29.5/-27/-17.5 -Gbw\_tim.nc'.$ Here, '-R19.5/29.5/-27/-17.5' stands for the coordinates in WESN (West--East--South--North) convention with coordinates of the southern hemisphere as negative values (here, the example is provided for the downward surface shortwave radiation map in Figure~\ref{fig:08}.
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_08.jpg} 
+%\end{center}
+\caption{Downward surface shortwave radiation. Mapping: GMT. Source: author.}
+\label{fig:08}
+\end{figure}
+%%\unskip 
+
+The implementation of the GMT algorithm for cartographic data processing is straightforward. In addition to the parameters of modules needed to plot the maps, the optimising setup of general GMT parameters was done. This included, for instance, the annotation offset, which is required to tightly plot the auxiliary texts, using the following expression: $MAP\_ANNOT\_OFFSET 0.2c$. Based on the preceding observations of the layouts of maps, the width and colour of map countours was defined using following expression and parameters: $MAP\_TICK\_PEN\_PRIMARY thinner,dimgray$, which overwrote the previous parameters while disregarding the earlier settings, see Figure~\ref{fig:09}.
+
+Effectively, we applied similar parameters for the cartographic grid using the expression $MAP\_GRID\_PEN thinnest,dimgray$, in order to keep the grid visualised yet not  disturb the main content of maps. Furthermore, we introduce the template of the output geographical coordinate of the maps by formatting each layout using the following command: $gmt set FORMAT\_GEO\_MAP=dddF$. In these parameters, the goal is to adjust the same parameters of plotting for all the maps from the map series, to make them consistently designed for comparative analysis. Using similar approach, the script initialised using the expression $ps=Topo\_BW.ps$ where all the commands executed by modules were inserted. In the end of script, it was followed the by command $gmt psconvert Topo_BW.ps -A0.2c -E720 -Tj -Z$ for data conversion.
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_09.jpg} 
+%\end{center}
+\caption{Vapor pressure in Botswana (2018). Mapping: GMT. Source: author.}
+\label{fig:09}
+\end{figure}
+%\unskip
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+\section{Results}
+
+The analysis of the distribution of the temperature extremes over Botswana (Figures~\ref{fig:02} and \ref{fig:03}) is important to understand the distribution of PDSI values \hl{(Figure}~\ref{fig:12}), %MDPI: Figure should be cited in numerical order. Thus, "Figure 12" should be cited after "11".
+ since these two parameters are linked. So, as can be seen in Figure~\ref{fig:02} ($T_{min}$ in Botswana in 2018), the minimal values over the country are recorded in the south-eatsern and southern regions of the country, in the proximity of the Lobatse city and the Limpopo river valley, where values are lower and reach +16.5 \degree C and further to the east (region of South Africa). The maximal temperature ($T_{max}$) in Botswana in 2018 is shown in Figure~\ref{fig:03}. 
+
+
+
+An important aspect of the $T_{max}$ distribution over Botswana depicted in Figure~\ref{fig:03} is that the highest values of the $T_{max}$ are in the southern region of Kalahari (up to +38 \degree C, bright red colour in Figure~\ref{fig:03}). This is partially caused by the typical hydrological and meteorological process of the evaporation due to the a lack of water as that all of the absorbed light goes into raising the surface temperature in the Kalahari Desert. The precipitation map (Figure~\ref{fig:04}) exhibited a certain degree of spatially dependent distribution of rainfalls, which generally increases to the north. However, the isolines demonstrate the rather wedge-shaped sharp decrease of that values that reach the maximum between the 21\degree and 22\degree~E in the centre of the Kalahari Desert.  
+
+The Okavango Delta shows the transitional values between 80 and 111 mm (lilac and red colours in Figure~\ref{fig:04}). The Ngotwane and Marico basins have values of 38 to 48 mm and the Makgadikgadi Pan has dominating values of 80 to 95 mm. If we compare these values to the different regions of Botswana, it becomes clear that the precipitation is higher in the northern regions of the country, and in the southern along the river of Limpopo. %check meanin retained
+The study of soil properties is important for environmental and landscape \mbox{research~\cite{Totolo,Lindh202210,Mosweu,Lemenkov202103,Zeilhofer},} as soil systems directly affects the plant health through linked interactions. Thus, the variations in soil moisture indicate the environmental health of the ecosystems and dynamics in land cover types. Figure~\ref{fig:05} illustrates the variations in soil moisture which show the least moisture in the Kalahari Desert (0--1 mm/m, i.e., extreme dry, yellow colour in Figure~\ref{fig:05}) with a slight increase in the NW and selected central districts of Kalahari (1--2 mm/m, beige), Figure~\ref{fig:05}. 
+
+Further gradual increase in soil moisture (2 to 5 mm/m, green colours) is notable in the north-western region of the country, specifically in the Okawanga Delta and on the border with Namibia. Moderate variations (up to 10 mm/m) are also notable around the Sehithwa village (Figure~\ref{fig:05}). The north-western bias in the trend of data distribution is notable in the north of the country owing to the precipitation, which increases northwards. At the same time, the temperature decrease is associated with climate effects in Botswana and direct impact from the Kalahari Desert in the southern region of the country. 
+
+
+
+The potential evapotranspiration (PET) (Figure~\ref{fig:06}) values are visualised continuously from the data extracted for Botswana. Here the data are ranging from a minimum of 133 mm to a maximum of 250 mm. Basic statistical inspection shows the mean of 196.048 mm and the standard deviation of 26.166 mm. The maximal is clearly visible in the lower region of Kalahari region (over 240 mm). Using the GDAL inspection by 'gdalinfo', the actual evapotranspiration (AET) Figure~\ref{fig:07}) was analysed and the data variations is shown as follows: a minimum of 13 mm, a maximum of 148 mm, a mean of 73.225 mm, and the standard deviation of 28.295 mm. Here, the minimal values correspond to the location of the Kalahari Desert in southern Botswana (values 0 to 50 mm). The gradients of isolines decrease (become less curved) in the northward direction towards the Okavango Delta, where the values reach up to 120 mm.
+
+The curves of the continuous fields showing the downward surface shortwave radiation are illustrated in Figure~\ref{fig:08}, which reflects the total amount of shortwave radiation, both direct and diffuse, that reaches the Earth's surface over the area in Botswana. The overall increase in the values can be noticed as increasing towards the southern region of Kalahari where the values reach up to 326 $Wm^{-2}$ (bright red colours in Figure~\ref{fig:08}) from the lowest in the northern region with the minimal values of 234 $Wm^{-2}$ (light beige colours in Figure~\ref{fig:08}). The vapour pressure (Figure~\ref{fig:09}) and vapour pressure deficit (Figure~\ref{fig:10}) correlate in general trend increasing towards the southern regions of Kalahari Desert and reaching values of 2.56 atm from the minimal of 1.17 atm in the north of the country for vapour pressure. 
+
+
+
+As shown in Figure~\ref{fig:10} (Vapour Pressure Deficit, VPD of Botswana), there is a general trend for vapour pressure to be higher in the SW (Kalahari Desert with the highest values of 3.3, bright yellow colour) and lower in the NE of Botswana (up to 1.4, purple colours in Figure~\ref{fig:10}). The VPD shows the deficit between the practical (real) value of the moisture in the air and the theoretical amount of moisture that the air can contain when saturated. The measured wind speed (Figure~\ref{fig:11}) reaches the maximal values in the area of Jwaneng eastward of Kalahari. The inspection of data gives the following data range: minimum at 1.8 m/s, maximum at 3.4 m/s, mean at 2.587 m/s, and standard deviation of values at 0.352 m/s (Figure~\ref{fig:11}).
+
+In general, the PDSI drought levels in Botswana in 2018 (Figure~\ref{fig:12}) show stepwise variation of index with roughly seven areas: (1) $-$3.7 to $-$2.2. (extreme drought); (2) $-$2.2 to $-$0.8 (strong drought, southern Kalahari); (3) $-$0.8 to 0.7 (significant drought): central Kalahari; (4) 0.7 to 2.1 (moderate drought); (5) 2.1 to 3.5 (lesser drought); (6) 3.5 to 4.9 (low drought); (7) 4.9 to 6.4 (least drought), Figure~\ref{fig:12}. The zero level is highlighted by the thick white isoline for the convenience of the classification (Figure~\ref{fig:12}). One possibility to explain the PDSI values (Figure~\ref{fig:12}) showing the minimal values , i.e., extreme drought with values $-$2.2 to $-$3.8), is that the minimal temperatures are recorded as the deepest area around the Lobaste, which is situated in the southern region of the country (Figure~\ref{fig:02}). Furthermore, this also corresponds to the low precipitation level in this region, compare with Figure~\ref{fig:04}, 35 to 61 mm, green colours: region of Jwaneng, Gaborone, area southwards of Kalahari. 
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=10 cm]{figures/fig_10.jpg} 
+%\end{center}
+\caption{Vapor pressure deficit in Botswana. Mapping: GMT. Source: author.}
+\label{fig:10}
+\end{figure}
+\unskip
+
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=9.5 cm]{figures/fig_11.jpg} 
+%\end{center}
+\caption{Wind speed in Botswana. Mapping: GMT. Source: author.}
+\label{fig:11}
+\end{figure}
+%\unskip 
+
+
+\begin{figure}[H]
+%\begin{center}
+	\includegraphics[width=11.5 cm]{figures/fig_12.jpg} 
+%\end{center}
+\caption{PDSI in Botswana. Mapping: GMT. Source: author.}
+\label{fig:12}
+\end{figure}
+%\unskip  
+
+
+
+In this region, the Downward Shortwave Surface Radiation (DSSR) is the highest, with values exceeding 318 Wm$^{-2}$ (compare Figure~\ref{fig:12} with Figure~\ref{fig:08}). The next (lesser) level of drought severity with values of $-$0.8 to $-$2.2 (light plum colour in Figure~\ref{fig:12}) was examined with map of the vapour pressure having consecutively decreasing values southwards of Kalahari (1.6 to 1.2) correlating to the second level of drought of Botswana ($-$0.8 to $-$2.2).
+
+\section{Discussion}
+
+The proposed framework of the GMT-based mapping produces a series of accurate maps through the efficient cartographic workflow. The speed of running the scripts is only several seconds for even complex data handling, which ensures the effectiveness of the cartographic workflow and reduces the human-based routine. Another important difference between the GIS and GMT is that each script is technically defined in the lines of code. This guarantees plotted map to be resulted as designed, in contrast to the hidden flaws and occasional errors of GIS interface. In other words, both the data processing and data visualisation in GMT are defined from a fixed commands of code lines that handle the data in a straightforward way and results in the programmed output. Using the presented map of PDSI, the results can be further evaluated for the analysis of four types of drought classification according to the regional setting of Botswana: 
+
+    \begin{itemize}
+        \item[$-$] Meteorological drought (dominating dry weather conditions); 
+        \item[$-$] Hydrological drought (noticeable low water supply); 
+        \item[$-$] Agricultural drought (crops are being affected); 
+        \item[$-$] Socioeconomic drought. 
+   \end{itemize} 
+      
+        Here, the fourth type  affects the social system and well-being of the population the most. These results continue the existing investigations on the complex interrelationships between climate, environmental, and topographic factors in Botswana~\cite{McGill,Maoyi,Ramberg2006b}. 
+
+The maps can be used as a background for a more complex analysis of climate and environmental effects on social well-being~\cite{Asefa,Vanderpost1995,Rahm,Mogomotsi}. This includes the Kalahari Desert, Makgadikgadi Pan, and Okavango Delta as the most important regions and landforms of Botswana, for determination of the possibility of droughts appearance in Botswana, using several multi-temporal climate datasets for different years and decades. 
+
+\section{Conclusions}
+
+With ever-expanding geospatial data collection, the analysis of the geo-information is becoming a fundamental research issue for many applications in Earth sciences. These include a wide variety of cases starting from data visualisation for detecting environmental trends, or data processing for climate change analysis, to more complex tasks of climate modelling, including prognosis and forecasting. Mapping spatial data aims to visualise environmental parameters in the most effective way in order to highlight variations in parameters of topography, temperature, soil moisture, land use dynamic,s and many more~\cite{Moreri,Mpofu,Lemenkova202203,Ramberg2006a,LANCASTER2022318}. To this end, cartographic visualisation has to bridge the gap between technical issues of spatial data processing and semantic interpretation of geo-information as a source of knowledge in environmental and Earth science. 
+
+The conceptual approach of data handling in GIS includes data semantics, such as points, lines, and polygons in vector types, and pixels in raster types, which can be read and processed by a variety of functions and modules existing in various GIS~\cite{ijgi11040257,Lemenkova202140,ijgi9110631}. With enough functionality and robust data, such methods can be used for data visualisation and modelling. However, obtaining higher automation and speed of data processing becomes more difficult in traditional GIS. This is caused due to subjective misclassification and errors originating from manual data handling. Processing large spatial datasets increases the need for automation to avoid repetitive cartographic operations and ensure quick and seamless data formatting. Moreover, while GIS methods are more or less capable of handling spatial data as objects, including surface modelling, they are often more sensitive to visualisation and mapping. In many cases, preparing final graphical map layouts in GIS remains a handmade process that requires optimisation and automation.
+
+Currently, most geospatial data processing tasks and the analysis of geo-information require that spatial features and objects plotted on the maps are extracted from the raw datasets effectively and rapidly, to produce the reliable and readable maps. The GMT method works in a unified framework which can jointly optimise technical data processing and produce the aesthetically adjusted maps. Compared to the traditional GIS, applying the scripting approach of GMT benefits from being a simple and straightforward approach. It is based on the programming approach of GMT efficient optimisation of geodata processing where each cartographic operation is processed by a single module with various finely adjusted options through the extended functionality. Once written, scripts are easily amenable and adjustable to repetitive data processing that require similar tasks. However, it also requires certain skills in programming for writing and executing the scripts.
+
+This study presented the new series of climate and environmental inventory maps of Botswana for 2018 using GMT scripting based on the TerraClimate and GEBCO datasets. The main contribution of this paper is to demonstrate that a straightforward programming method of modern cartography can be used to represent climate and environmental parameters accurately and effectively without requiring additional commercial GIS. The presented maps can be used as a background for further regional climate studies of Botswana. Usually based on processing a variety of thematic datasets, environmental and applied geological studies depict spatio-temporal trends in ecosystems related to the Earth’s surface and processes using topographic, climate, and environmental datasets ~\cite{AkinyemiKgomo,Ishimoto,Klauco2013,Eze,Lemenkova202212,Chipanshi,Klauco2017}. %Check meaning retained
+Practical application of the presented maps includes environmental assessment and agricultural analysis in Botswana, as it is strongly affected by climate variability and characteristics, such as periods of drought, extreme temperatures and vapour pressure, as well as seasonal changes in rainfalls~\cite{Maruatona,PARIDA2008614,MOSES2018102,DAHLBERG200019}.
+
+Advances in the data processing can be recommended for future studies, including the assessment of correlation between the selected environmental and climate variables and their location and spatio-temporal variations. Among others, climate parameters can be used as datasets: PDSI, AET, PET, $T_{max}$/$T_{min}$, soil moisture, precipitation intensity and repeatability with respect to local topography. Furthermore, as a direction for future research, one may also consider statistical data analysis, which is possible in GMT, besides mapping. For instance, plotting histograms of data distribution for climatic and topographic indicators can be performed using module 'pshistogram'.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{6pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\authorcontributions{\hl{ }} %MDPI: please add: For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, Author Name and Author Name; methodology, Author Name; software, Author Name; validation, Author Name, Author Name and Author Name; formal analysis, Author Name; investigation, Author Name; resources, Author Name; data curation, Author Name; writing---original draft preparation, Author Name; writing---review and editing, Author Name; visualization, Author Name; supervision, Author Name; project administration, Author Name; funding acquisition, Author Name All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.}
+
+\funding{The APC was fully covered by the \emph{Multidisciplinary Digital Publishing Institute (MDPI)} based on a special invitation for publication of this article by the Editorial Board of the \emph{ISPRS International Journal of Geo-Information (IJGI)}.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{The GitHub repository of the author with available GMT scripts: \href{https://github.com/paulinelemenkova/Mapping_Botswana_GMT_Scripts}{https://github.com/paulinelemenkova/Mapping\_Botswana\_GMT\_Scripts} (accessed on 25 June 2022)}
+
+\acknowledgments{The author cordially thanks the three anonymous reviewers for their comments, corrections and suggestions, which improved the initial version of the manuscript.}
+
+\conflictsofinterest{The author declares no conflict of interest.} 
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+AET & Actual Evapotranspiration \\
+DSSR & Downward Shortwave Surface Radiation \\
+GDAL & Geospatial Data Abstraction Library \\
+GEBCO & General Bathymetric Chart of the Oceans \\ 
+GIS & Geographic Information System \\
+GMT & Generic Mapping Tools \\
+GUI & Graphical User Interface \\
+NetCDF & Network Common Data Form \\
+PDSI & Palmer Drought Severity Index \\
+PET & Potential Evapotranspiration \\
+SRTM & Shuttle Radar Topography Mission \\
+SPI & Standardized Precipitation Index \\
+SPEI & Standardized Precipitation Evapotranspiration Index \\
+VPD & Vapor Pressure Deficit \\
+VP & Vapor Pressure \\
+\end{tabular}
+}
+
+
+
+\begin{adjustwidth}{-\extralength}{0cm}
+%\centering %% If there is a figure in wide page, please release command \centering
+
+
+\reftitle{References}
+\begin{thebibliography}{999}
+
+\bibitem[Turner(2003)]{Turner}
+Turner, M.D.
+\newblock {Methodological Reflections on the Use of Remote Sensing and
+  Geographic Information Science in Human Ecological Research}.
+\newblock {\em Hum. Ecol.} {\bf 2003}, {\em 31},~255--279.
+\newblock {{https://doi.org/10.1023/A:1023984813957}}.
+
+\bibitem[Hamandawana(2012)]{Hamandawana}
+Hamandawana, H.
+\newblock {The impacts of herbivory on vegetation in Moremi Game Reserve,
+  Botswana: 1967--2001}.
+\newblock {\em Reg. Environ. Chang.} {\bf 2012}, {\em 12},~1--15.
+\newblock {{https://doi.org/10.1007/s10113-011-0230-0}}.
+
+\bibitem[Maoyi and Abiodun(2022)]{MaoyiAbiodun}
+Maoyi, M.L.; Abiodun, B.J.
+\newblock {Investigating the response of the Botswana High to El Niño Southern
+  Oscillation using a variable resolution global climate model}.
+\newblock {\em Theor. Appl. Climatol.} {\bf 2022}, {\em
+  147},~1601--1615.
+\newblock {{https://doi.org/10.1007/s00704-021-03892-7}}.
+
+\bibitem[Segobye(2006)]{Segobye}
+Segobye, A.
+\newblock {Divided commons: The political economy of Southern Africa's cultural
+  heritage landscapes---Observations of the central Kalahari game reserve,
+  Botswana}.
+\newblock {\em Archaeologies} {\bf 2006}, {\em 2},~52--72.
+\newblock {{https://doi.org/10.1007/s11759-006-0006-1}}.
+
+\bibitem[Ceccato \em{et~al.}(2014)Ceccato, Fernandes, Ruiz, and Allis]{Ceccato}
+Ceccato, P.; Fernandes, K.; Ruiz, D.; Allis, E.
+\newblock {Climate and environmental monitoring for decision making}.
+\newblock {\em Earth Perspect.} {\bf 2014}, {\em 1},~16.
+\newblock {{https://doi.org/10.1186/2194-6434-1-16}}.
+
+\bibitem[de~Sherbinin(2014)]{Sherbinin}
+de~Sherbinin, A.
+\newblock {Climate change hotspots mapping: What have we learned?}
+\newblock {\em Clim. Chang.} {\bf 2014}, {\em 123},~23--37.
+\newblock {{https://doi.org/ 10.1007/s10584-013-0900-7}}.
+
+\bibitem[Herslund \em{et~al.}(2016)Herslund, Jalayer, Jean-Baptiste,
+  Jørgensen, Kabisch, Kombe, Lindley, Nyed, Pauleit, Printz, and
+  Vedeld]{Herslund}
+Herslund, L.B.; Jalayer, F.; Jean-Baptiste, N.; Jørgensen, G.; Kabisch, S.;
+  Kombe, W.; Lindley, S.; Nyed, P.K.; Pauleit, S.; Printz, A.;  et~al.
+\newblock {A multi-dimensional assessment of urban vulnerability to climate
+  change in Sub-Saharan Africa}.
+\newblock {\em Nat. Hazards} {\bf 2016}, {\em 82},~149--172.
+\newblock {{https://doi.org/10.1007/s11069-015-1856-x}}.
+
+\bibitem[Wessel \em{et~al.}(2019)Wessel, Luis, Uieda, Scharroo, Wobbe, Smith,
+  and Tian]{Wessel}
+Wessel, P.; Luis, J.F.; Uieda, L.; Scharroo, R.; Wobbe, F.; Smith, W.H.F.;
+  Tian, D.
+\newblock {The Generic Mapping Tools version 6}.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2019}, {\em
+  20},~5556--5564.
+\newblock {{https://doi.org/10.1029/2019GC008515}}.
+
+\bibitem[Batisani(2011)]{Batisani2011}
+Batisani, N.
+\newblock {The Spatio-Temporal-Severity Dynamics of Drought in Botswana}.
+\newblock {\em J. Environ. Prot.} {\bf 2011}, {\em
+  2},~803--816.
+\newblock {{https://doi.org/10.4236/jep.2011.26092}}.
+
+\bibitem[Vanderpost \em{et~al.}(2011)Vanderpost, Ringrose, Matheson, and
+  Arntzen]{Vanderpost}
+Vanderpost, C.; Ringrose, S.; Matheson, W.; Arntzen, J.
+\newblock {Satellite based long-term assessment of rangeland condition in
+  semi-arid areas: An example from Botswana}.
+\newblock {\em J. Arid. Environ.} {\bf 2011}, {\em 75},~383--389.
+\newblock {{https://doi.org/10.1016/j.jaridenv.2010.11.002}}.
+
+\bibitem[Mogotsi \em{et~al.}(2013)Mogotsi, Nyangito, and Nyariki]{Mogotsi}
+Mogotsi, K.; Nyangito, M.M.; Nyariki, D.M.
+\newblock {The role of drought among agro-pastoral communities in a semi-arid
+  environment: The case of Botswana}.
+\newblock {\em J. Arid. Environ.} {\bf 2013}, {\em 91},~38--44.
+\newblock {{https://doi.org/10.1016/j.jaridenv.2012.11.006}}.
+
+\bibitem[Akinyemi and Mashame(2018)]{Akinyemi}
+Akinyemi, F.O.; Mashame, G.
+\newblock {Analysis of land change in the dryland agricultural landscapes of
+  eastern Botswana}.
+\newblock {\em Land Use Policy} {\bf 2018}, {\em 76},~798--811.
+\newblock {{https://doi.org/10.1016/j.landusepol.2018.03.010}}.
+
+\bibitem[Atekwana \em{et~al.}(2016)Atekwana, Molwalefhe, Kgaodi, and
+  Cruse]{Atekwana}
+Atekwana, E.A.; Molwalefhe, L.; Kgaodi, O.; Cruse, A.M.
+\newblock {Effect of evapotranspiration on dissolved inorganic carbon and
+  stable carbon isotopic evolution in rivers in semi-arid climates: The
+  Okavango Delta in North West Botswana}.
+\newblock {\em J. Hydrol. Reg. Stud.} {\bf 2016}, {\em
+  7},~1--13.
+\newblock {{https://doi.org/10.1016/j.ejrh.2016.05.003}}.
+
+\bibitem[Ringrose \em{et~al.}(2002)Ringrose, Chipanshi, Matheson, Chanda,
+  Motoma, Magole, and Jellema]{Ringrose2002}
+Ringrose, S.; Chipanshi, A.; Matheson, W.; Chanda, R.; Motoma, L.; Magole, I.;
+  Jellema, A.
+\newblock Climate- and Human-Induced Woody Vegetation Changes in Botswana and
+  Their Implications for Human Adaptation.
+\newblock {\em Environ. Manag.} {\bf 2002}, {\em 30},~98--109.
+\newblock {{https://doi.org/10.1007/s00267-002-2486-0}}.
+
+\bibitem[Kenabatho \em{et~al.}(2012)Kenabatho, Parida, and Moalafhi]{Kenabatho}
+Kenabatho, P.K.; Parida, B.P.; Moalafhi, D.B.
+\newblock {The value of large-scale climate variables in climate change
+  assessment: The case of Botswana’s rainfall}.
+\newblock {\em Phys. Chem. Earth Parts A/B/C} {\bf 2012},
+  {\em 50--52},~64--71.
+\newblock {{https://doi.org/10.1016/j.pce.2012.08.006}}.
+
+\bibitem[Byakatonda \em{et~al.}(2019)Byakatonda, Parida, Kenabatho, and
+  Moalafhi]{Byakatonda2019}
+Byakatonda, J.; Parida, B.P.; Kenabatho, P.K.; Moalafhi, D.B.
+\newblock {Prediction of onset and cessation of austral summer rainfall and dry
+  spell frequency analysis in semiarid Botswana}.
+\newblock {\em Theor. Appl. Climatol.} {\bf 2019}, {\em
+  135},~101--117.
+\newblock {{https://doi.org/10.1007/s00704-017-2358-4}}.
+
+\bibitem[Batisani and Yarnal(2010)]{Batisani}
+Batisani, N.; Yarnal, B.
+\newblock {Rainfall variability and trends in semi-arid Botswana: Implications
+  for climate change adaptation policy}.
+\newblock {\em Appl. Geogr.} {\bf 2010}, {\em 30},~483--489.
+\newblock {{https://doi.org/10.1016/j.apgeog.2009.10.007}}.
+
+\bibitem[Longley \em{et~al.}(2015)Longley, Goodchild, Maguire, and
+  Rhind]{Longley}
+Longley, P.A.; Goodchild, M.F.; Maguire, D.J.; Rhind, D.W.
+\newblock {\em Geographic Information Science and Systems}, 4th ed.; John Wiley
+  \& Sons:  \hl{Hoboken}, NJ, USA, %We added the location of publisher. Please confirm
+2015.
+
+\bibitem[Chrisman(2001)]{Chrisman}
+Chrisman, N.
+\newblock {\em Exploring Geographic Information Systems}, 2nd ed.; John Wiley \&
+  Sons: \hl{Hoboken}, NJ, USA, 2001.
+
+\bibitem[Vankova \em{et~al.}(2022)Vankova, Krejza, Kocourkova, and
+  Laciga]{VANKOVA2022708}
+Vankova, L.; Krejza, Z.; Kocourkova, G.; Laciga, J.
+\newblock Geographic Information System Usage Options in Facility Management.
+\newblock {\em Procedia Comput. Sci.} {\bf 2022}, {\em 196},~708--716.
+%\newblock International Conference on ENTERprise Information Systems / ProjMAN  - International Conference on Project MANagement / HCist - International  Conference on Health and Social Care Information Systems and Technologies  2021, 
+  {{https://doi.org/10.1016/j.procs.2021.12.067}}.
+
+\bibitem[Rahman and Szabó(2022)]{ijgi11050313}
+Rahman, M.M.; Szabó, G.
+\newblock Sustainable Urban Land-Use Optimization Using GIS-Based Multicriteria
+  Decision-Making (GIS-MCDM) Approach.
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2022}, {\em
+  11}, \hl{313.} %MDPI: newly added information. 
+\newblock {{https://doi.org/10.3390/ijgi11050313}}.
+
+\bibitem[Visvalingam(1989)]{Visvalingam}
+Visvalingam, M.
+\newblock Cartography, GIS and Maps in Perspective.
+\newblock {\em  Cartogr. J.} {\bf 1989}, {\em 26},~26--32.
+\newblock {{https://doi.org/10.1179/caj.1989.26.1.26}}.
+
+\bibitem[Nilsson \em{et~al.}(2021)Nilsson, Mentis, Korkovelos, and
+  Otwani]{ijgi10110780}
+Nilsson, A.; Mentis, D.; Korkovelos, A.; Otwani, J.
+\newblock A GIS-Based Approach to Estimate Electricity Requirements for
+  Small-Scale Groundwater Irrigation.
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2021}, {\em
+  10}, \hl{780}.
+\newblock {{https://doi.org/10.3390/ijgi10110780}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202105}
+Lemenkova, P.
+\newblock {The visualization of geophysical and geomorphologic data from the
+  area of Weddell Sea by the Generic Mapping Tools}.
+\newblock {\em Stud. Quat.} {\bf 2021}, {\em 38},~19--32.
+\newblock {{https://doi.org/10.24425/sq.2020.133759}}.
+
+\bibitem[Xing and Guo(2022)]{ijgi11050297}
+Xing, Z.; Guo, W.
+\newblock A New Urban Space Analysis Method Based on Space Syntax and
+  Geographic Information System Using Multisource Data.
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2022}, {\em
+  11}, 297.
+\newblock {{https://doi.org/10.3390/ijgi11050297}}.
+
+\bibitem[Reed and Dougill(2010)]{REED2010149}
+Reed, M.; Dougill, A.
+\newblock Linking degradation assessment to sustainable land management: A
+  decision support system for Kalahari pastoralists.
+\newblock {\em J. Arid. Environ.} {\bf 2010}, {\em 74},~149--155.
+\newblock {{https://doi.org/10.1016/j.jaridenv.2009.06.016}}.
+
+\bibitem[Jovanovic \em{et~al.}(2001)Jovanovic, Annandale, Claassens, Lorentz,
+  and Tanner]{Jovanovic}
+Jovanovic, N.Z.; Annandale, J.G.; Claassens, A.S.; Lorentz, S.A.; Tanner, P.D.
+\newblock {Modeling Irrigation with Gypsiferous Mine Water: A Case Study in
+  Botswana}.
+\newblock {\em Mine Water Environ.} {\bf 2001}, {\em 20},~65--72.
+\newblock {{https://doi.org/10.1007/s10230-001-8084-1}}.
+
+\bibitem[Basupi \em{et~al.}(2017)Basupi, Quinn, and Dougill]{Basupi2017}
+Basupi, L.V.; Quinn, C.H.; Dougill, A.J.
+\newblock {Historical perspectives on pastoralism and land tenure
+  transformation in Ngamiland, Botswana: What are the policy and institutional
+  lessons?}
+\newblock {\em Pastoralism} {\bf 2017}, {\em 7},~24.
+\newblock {{https://doi.org/10.1186/s13570-017-0093-1}}.
+
+\bibitem[Mfundisi(2008)]{Mfundisi}
+Mfundisi, K.B.
+\newblock {Overview of an integrated management plan for the Okavango Delta
+  Ramsar Site, Botswana}.
+\newblock {\em Wetlands} {\bf 2008}, {\em 28},~538--543.
+\newblock {{https://doi.org/10.1672/07-55.1}}.
+
+\bibitem[Osupile \em{et~al.}(2022)Osupile, Yahya, and Samikannu]{9792979}
+Osupile, K.; Yahya, A.; Samikannu, R.
+\newblock A Review on Agriculture Monitoring Systems using Internet of Things
+  (IoT).
+\newblock In Proceedings of the 2022 International Conference on Applied
+  Artificial Intelligence and Computing (ICAAIC),  \hl{Kuala Lumpur, Malaysia, 9--10 December} %MDPI: newly added information. 
+ 2022; pp.~1565--1572.
+\newblock {{https://doi.org/10.1109/ICAAIC53929.2022.9792979}}.
+
+\bibitem[Tsheboeng \em{et~al.}(2017)Tsheboeng, Murray-Hudson, and
+  Kashe]{Tsheboeng}
+Tsheboeng, G.; Murray-Hudson, M.; Kashe, K.
+\newblock {Regeneration status of riparian tree species in two sites that
+  differ in land-use in the Okavango Delta, Botswana}.
+\newblock {\em J. For. Res.} {\bf 2017}, {\em 28},~1073--1082.
+\newblock {{https://doi.org/10.1007/s11676-017-0382-y}}.
+
+\bibitem[Moses(2019)]{Moses2019}
+Moses, O.
+\newblock {Weather systems influencing Botswana rainfall: The case of 9
+  December 2018 storm in Mahalapye, Botswana}.
+\newblock {\em Model. Earth Syst. Environ.} {\bf 2019}, {\em
+  5},~1473--1480.
+\newblock {{https://doi.org/10.1007/s40808-019-00640-9}}.
+
+\bibitem[Mogome-Ntsatsi and Adeola(1995)]{Mogome}
+Mogome-Ntsatsi, K.; Adeola, O.A.
+\newblock {Promoting environmental awareness in Botswana: The role of community
+  education}.
+\newblock {\em Environmentalist} {\bf 1995}, {\em 15},~281--292.
+\newblock {{https://doi.org/10.1007/BF01902250}}.
+
+\bibitem[Lange(2004)]{Lange}
+Lange, G.
+\newblock {Wealth, Natural Capital, and Sustainable Development: Contrasting
+  Examples from Botswana and Namibia}.
+\newblock {\em Environ. Resour. Econ.} {\bf 2004}, {\em
+  29},~257--283.
+\newblock {{https://doi.org/10.1007/s10640-004-4045-z}}.
+
+\bibitem[Kasalica and Lamprecht(2018)]{Kasalica}
+\hl{Kasalica, V.; Lamprecht, A.L.} %MDPI:  Refs. 35 and 37 are duplicated. Please remove ref. xx and rearrange all the references to appear in numerical order. Please ensure that there are no duplicated references. 
+\newblock Automated composition of scientific workflows: A case study on
+  geographic data manipulation.
+\newblock In Proceedings of the 2018 IEEE 14th International Conference on
+  e-Science (e-Science), \hl{Amsterdam, The Netherlands,  29 October--1 November} 2018; pp. 362--363.
+\newblock {{https://doi.org/10.1109/eScience.2018.00099}}.
+
+\bibitem[Lemenkova(2019)]{Lemenkova2019106}
+Lemenkova, P.
+\newblock {Automatic Data Processing for Visualising Yap and Palau Trenches by
+  Generic Mapping Tools}.
+\newblock {\em Cartogr. Lett.} {\bf 2019}, {\em 27},~72--89.
+\newblock {{https://doi.org/10.5281/zenodo.3676942}}.
+
+\bibitem[Kasalica and Lamprecht(2018)]{8588718}
+\hl{Kasalica, V.; Lamprecht, A.L.} %MDPI:  Refs. 35 and 37 are duplicated. Please remove ref. xx and rearrange all the references to appear in numerical order. Please ensure that there are no duplicated references. 
+\newblock Automated composition of scientific workflows: A case study on
+  geographic data manipulation.
+\newblock In Proceedings of the 2018 IEEE 14th International Conference on
+  e-Science (e-Science),  \hl{Amsterdam, The Netherlands,  29 October--1 November}  2018; pp. 362--363.
+\newblock {{https://doi.org/10.1109/eScience.2018.00099}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202205}
+Lemenkova, P.
+\newblock {Seismicity in the Afar Depression and Great Rift Valley, Ethiopia}.
+\newblock {\em Environ. Res. Eng. Manag.} {\bf 2022},
+  {\em 78},~83--96.
+\newblock {{https://doi.org/10.5755/j01.erem.78.1.29963}}.
+
+\bibitem[Spinellis(2009)]{4814952}
+Spinellis, D.
+\newblock Drawing Tools.
+\newblock {\em IEEE Softw.} {\bf 2009}, {\em 26},~12--13.
+\newblock {{https://doi.org/10.1109/MS.2009.63}}.
+
+\bibitem[Lemenkova(2019)]{Lemenkova201994}
+Lemenkova, P.
+\newblock {GMT Based Comparative Analysis and Geomorphological Mapping of the
+  Kermadec and Tonga Trenches, Southwest Pacific Ocean}.
+\newblock {\em Geogr. Tech.} {\bf 2019}, {\em 14},~39--48.
+\newblock {{https://doi.org/10.21163/GT\_2019.142.04}}.
+
+\bibitem[Yajima \em{et~al.}(2011)Yajima, Gwandu, and Sigweni]{6049609}
+Yajima, T.; Gwandu, K.R.; Sigweni, M.A.
+\newblock Mapping mafic and ultramafic units using remote sensing data in north
+  east Botswana.
+\newblock In Proceedings of the 2011 IEEE International Geoscience and Remote
+  Sensing Symposium,  \hl{Vancouver, BC, Canada, 24--29 July} 2011; pp. 2218--2220.
+\newblock {{https://doi.org/10.1109/IGARSS.2011.6049609}}.
+
+\bibitem[Ceccato \em{et~al.}(2010)Ceccato, Vancutsem, and Temimi]{5649810}
+Ceccato, P.; Vancutsem, C.; Temimi, M.
+\newblock Monitoring air and Land Surface Temperatures from remotely sensed
+  data for climate-human health applications.
+\newblock In Proceedings of the 2010 IEEE International Geoscience and Remote
+  Sensing Symposium,  \hl{Honolulu, HI, USA, 25--30 July} 2010; pp. 178--180.
+\newblock {{https://doi.org/10.1109/IGARSS.2010.5649810}}.
+
+\bibitem[Campbell(1986)]{Campbell}
+Campbell, A.
+\newblock {The use of wild food plants, and drought in Botswana}.
+\newblock {\em J. Arid. Environ.} {\bf 1986}, {\em 11},~81--91.
+\newblock {{https://doi.org/10.1016/S0140-1963(18)31312-0}}.
+
+\bibitem[Ellery \em{et~al.}(2003)Ellery, McCarthy, and Smith]{Ellery}
+Ellery, W.N.; McCarthy, T.S.; Smith, N.D.
+\newblock {Vegetation, hydrology, and sedimentation patterns on the major
+  distributary system of the Okavango fan, Botswana}.
+\newblock {\em Wetlands} {\bf 2003}, {\em 23},~357--375.
+\newblock {{https://doi.org/10.1672/11-20}}.
+
+\bibitem[Franchi \em{et~al.}(2021)Franchi, Kelepile, {Di Capua}, {De Wit},
+  Kemiso, Lasarwe, and Catuneanu]{Franchi}
+Franchi, F.; Kelepile, T.; {Di Capua}, A.; {De Wit}, M.C.J.; Kemiso, O.;
+  Lasarwe, R.; Catuneanu, O.
+\newblock {Lithostratigraphy, sedimentary petrography and geochemistry of the
+  Upper Karoo Supergroup in the Central Kalahari Karoo Sub-Basin, Botswana}.
+\newblock {\em J. Afr. Earth Sci.} {\bf 2021}, {\em
+  173},~104025.
+\newblock {{https://doi.org/10.1016/j.jafrearsci.2020.104025}}.
+
+\bibitem[Masunga \em{et~al.}(2013)Masunga, Moe, and Pelekekae]{Masunga}
+Masunga, G.S.; Moe, S.R.; Pelekekae, B.
+\newblock {Fire and Grazing Change Herbaceous Species Composition and Reduce
+  Beta Diversity in the Kalahari Sand System}.
+\newblock {\em Ecosystems} {\bf 2013}, {\em 16},~252--268.
+\newblock {{https://doi.org/10.1007/s10021-012-9611-6}}.
+
+\bibitem[Elliott \em{et~al.}(2014)Elliott, Thomas, Hoon, and Sen]{Elliott}
+Elliott, D.R.; Thomas, A.D.; Hoon, S.R.; Sen, R.
+\newblock {Niche partitioning of bacterial communities in biological crusts and
+  soils under grasses, shrubs and trees in the Kalahari}.
+\newblock {\em Biodivers. Conserv.} {\bf 2014}, {\em 23},~1709--1733.
+\newblock {{https://doi.org/10.1007/s10531-014-0684-8}}.
+
+\bibitem[Eckardt \em{et~al.}(2016)Eckardt, Cotterill, Flügel, Kahle,
+  McFarlane, and Rowe]{ECKARDT2016115}
+Eckardt, F.D.; Cotterill, F.P.; Flügel, T.J.; Kahle, B.; McFarlane, M.; Rowe,
+  C.
+\newblock Mapping the surface geomorphology of the Makgadikgadi Rift Zone
+  (MRZ).
+\newblock {\em Quat. Int.} {\bf 2016}, {\em 404},~115--120.
+%\newblock The African Quaternary: environments, ecology and humans Inaugural  AFQUA conference, 
+  {{https://doi.org/10.1016/j.quaint.2015.09.002}}.
+
+\bibitem[McFarlane and Long(2015)]{MCFARLANE2015108}
+McFarlane, M.; Long, C.
+\newblock Pan floor ‘barchan’ mounds, Ntwetwe Pan, Makgadikgadi, Botswana:
+  Their origin and palaeoclimatic implications.
+\newblock {\em Quat. Int.} {\bf 2015}, {\em 372},~108--119.
+%\newblock Loess and Dust: Contributions in honour of Ian Smalley,
+  {{https://doi.org/10.1016/j.quaint.2014.10.008}}.
+
+\bibitem[Burrough \em{et~al.}(2012)Burrough, Thomas, Bailey, and
+  Davies]{Burrough}
+Burrough, S.L.; Thomas, D.S.G.; Bailey, R.M.; Davies, L.
+\newblock {From landform to process: Morphology and formation of lake-bed
+  barchan dunes, Makgadikgadi, Botswana}.
+\newblock {\em Geomorphology} {\bf 2012}, {\em 161--162},~1--14.
+\newblock {{https://doi.org/10.1016/j.geomorph.2012.03.027}}.
+
+\bibitem[Wood \em{et~al.}(2010)Wood, Eckardt, Kraemer, and Eng]{Wood}
+Wood, W.W.; Eckardt, F.D.; Kraemer, T.F.; Eng, K., {Quantitative Eolian
+  Transport of Evaporite Salts from the Makgadikgadi Depression (Ntwetwe and
+  Sua Pans) in Northeastern Botswana: Implications for Regional Ground-Water
+  Quality}.
+\newblock In {\em {Sabkha Ecosystems. Tasks for Vegetation Science}}; Öztürk, M., Böer, B., Barth, H.J., Clüsener-Godt, M., Khan, M.,  Breckle, S.W., Eds.;  Springer:  Dordrecht, The Netherlands,  2010; Voume~46; pp. 27--37.
+\newblock {{https://doi.org/10.1007/978-90-481-9673-9\_4}}.
+
+\bibitem[Hemming(1980)]{Hemming}
+Hemming, C.F.
+\newblock {Drought in Botswana}.
+\newblock {\em J. Arid. Environ.} {\bf 1980}, {\em 3},~181.
+\newblock {{https://doi.org/10.1016/S0140-1963(18)31668-9}}.
+
+\bibitem[Karikari and Tabona(2004)]{Karikari}
+Karikari, S.K.; Tabona, T.T.
+\newblock {Constitutive traits and selective indices of Bambara groundnut
+  (\emph{Vigna subterranea} (L) Verdc) landraces for drought tolerance under Botswana
+  conditions}.
+\newblock {\em Phys. Chem. Earth Parts A/B/C} {\bf 2004},
+  {\em 29},~1029--1034.
+\newblock {{https://doi.org/10.1016/j.pce.2004.08.002}}.
+
+\bibitem[Badimo \em{et~al.}(2020)Badimo, Mogomotsi, and Mogomotsi]{Badimo}
+Badimo, D.; Mogomotsi, P.K.; Mogomotsi, G.E.J.
+\newblock {Participatory mapping of water collection by Sexaxa community in
+  Okavango, Botswana}.
+\newblock {\em Phys. Chem. Earth} {\bf 2020}, {\em \hl{124}},~102963.%MDPI: newly added information
+\newblock {{https://doi.org/10.1016/j.pce.2020.102963}}.
+
+\bibitem[Basupi \em{et~al.}(2019)Basupi, Quinn, and Dougill]{Basupi}
+Basupi, L.V.; Quinn, C.H.; Dougill, A.J.
+\newblock {Adaptation strategies to environmental and policy change in
+  semi-arid pastoral landscapes: Evidence from Ngamiland, Botswana}.
+\newblock {\em J. Arid. Environ.} {\bf 2019}, {\em 166},~17--27.
+\newblock {{https://doi.org/10.1016/j.jaridenv.2019.01.011}}.
+
+\bibitem[Charis \em{et~al.}(2019)Charis, Danha, and Muzenda]{Charis}
+Charis, G.; Danha, G.; Muzenda, E.
+\newblock {Waste valorisation opportunities for bush encroacher biomass in
+  savannah ecosystems: A comparative case analysis of Botswana and Namibia}.
+\newblock {\em Procedia Manuf.} {\bf 2019}, {\em 35},~974--979.
+\newblock {{https://doi.org/10.1016/j.promfg.2019.06.044}}.
+
+\bibitem[Craig \em{et~al.}(2007)Craig, Sharp, Mabaso, and Kleinschmidt]{Craig}
+Craig, M.H.; Sharp, B.L.; Mabaso, M.L.H.; Kleinschmidt, I.
+\newblock {Developing a spatial-statistical model and map of historical malaria
+  prevalence in Botswana using a staged variable selection procedure}.
+\newblock {\em Int. J. Health Geogr.} {\bf 2007}, {\em
+  6}.
+\newblock {{https://doi.org/10.1186/1476-072X-6-44}}.
+
+\bibitem[Tonnang \em{et~al.}(2014)Tonnang, Tchouassi, and Juarez]{Tonnang}
+Tonnang, H.E.; Tchouassi, D.P.; Juarez, H.S.e.a.
+\newblock {Zoom in at African country level: Potential climate induced changes
+  in areas of suitability for survival of malaria vectors}.
+\newblock {\em Int. J. Health Geogr.} {\bf 2014}, {\em
+  13}.
+\newblock {{https://doi.org/10.1186/1476-072X-13-12}}.
+
+\bibitem[Motsholapheko and Ngwenya(2021)]{Motsholapheko}
+Motsholapheko, M.R.; Ngwenya, B.N., {Access to Water Resources and Household
+  Vulnerability to Malaria in the Okavango Delta, Botswana}.
+\newblock In {\em {African Handbook of Climate Change Adaptation}}; Oguge, N., Ayal, D., Adeleke, L., da Silva, I., Eds.; Springer:  Cham, Switzerland,  2021; pp. 1227--1246.
+\newblock 
+  {{https://doi.org/10.1007/978-3-030-45106-6\_165}}.
+
+\bibitem[Charnley \em{et~al.}(2021)Charnley, Kelman, Green, Hinsley, Gaythorpe,
+  and Murray]{Charnley}
+Charnley, G.E.C.; Kelman, I.; Green, N.; Hinsley, W.; Gaythorpe, K.A.M.;
+  Murray, K.A.
+\newblock {Exploring relationships between drought and epidemic cholera in
+  Africa using generalised linear models}.
+\newblock {\em BMC Infect. Dis.} {\bf 2021}, {\em 21}, \hl{1177}.
+\newblock {{https://doi.org/10.1186/s12879-021-06856-4}}.
+
+\bibitem[Moses and Hambira(2018)]{Moses}
+Moses, O.; Hambira, W.L.
+\newblock {Effects of climate change on evapotranspiration over the Okavango
+  Delta water resources}.
+\newblock {\em Phys. Chem. Earth Parts A/B/C} {\bf 2018},
+  {\em 105},~98--103.
+\newblock {{https://doi.org/10.1016/j.pce.2018.03.011}}.
+
+\bibitem[Milzow \em{et~al.}(2009)Milzow, Kgotlhang, Bauer-Gottwein, Meier, and
+  Kinzelbach]{Milzow}
+Milzow, C.; Kgotlhang, L.; Bauer-Gottwein, P.; Meier, P.; Kinzelbach, W.
+\newblock {Regional review: The hydrology of the Okavango Delta,
+  Botswana---Processes, data and modelling}.
+\newblock {\em Hydrogeol. J.} {\bf 2009}, {\em 17},~1297--1328.
+\newblock {{https://doi.org/10.1007/s10040-009-0436-0}}.
+
+\bibitem[Wolski and Murray-Hudson(2005)]{Wolski}
+Wolski, P.; Murray-Hudson, M.
+\newblock {Flooding dynamics in a large low-gradient alluvial fan, the Okavango
+  Delta, Botswana, from analysis and interpretation of a 30-year hydrometric
+  record}.
+\newblock {\em Hydrol. Earth Syst. Sci.} {\bf 2005}, {\em
+  2},~1865--1892.
+\newblock {{https://doi.org/10.5194/hessd-2-1865-2005}}.
+
+\bibitem[Belbase and Morgan(1994)]{Belbase}
+Belbase, K.; Morgan, R.
+\newblock {Food security and nutrition monitoring for drought relief
+  management: The case of Botswana}.
+\newblock {\em Food Policy} {\bf 1994}, {\em 19},~285--300.
+\newblock {{https://doi.org/10.1016/0306-9192(94)90076-0}}.
+
+\bibitem[Dintwa \em{et~al.}(2019)Dintwa, Letamo, and Navaneetham]{Dintwa}
+Dintwa, K.F.; Letamo, G.; Navaneetham, K.
+\newblock {Quantifying social vulnerability to natural hazards in Botswana: An
+  application of cutter model}.
+\newblock {\em Int. J. Disaster Risk Reduct.} {\bf 2019},
+  {\em 37},~101189.
+\newblock {{https://doi.org/10.1016/j.ijdrr.2019.101189}}.
+
+\bibitem[Byakatonda \em{et~al.}(2018)Byakatonda, Parida, and
+  Kenabatho]{Byakatonda2018a}
+Byakatonda, J.; Parida, B.P.; Kenabatho, P.K.
+\newblock {Relating the dynamics of climatological and hydrological droughts in
+  semiarid Botswana}.
+\newblock {\em Phys. Chem. Earth. Parts A/B/C} {\bf 2018},
+  {\em 105},~12--24.
+\newblock {{https://doi.org/10.1016/j.pce.2018.02.004}}.
+
+\bibitem[Abatzoglou \em{et~al.}(2018)Abatzoglou, Dobrowski, Parks, and
+  Hegewisch]{Abatzoglou}
+Abatzoglou, J.; Dobrowski, S.; Parks, S.; Hegewisch, K.C.
+\newblock {TerraClimate, a high-resolution global dataset of monthly climate
+  and climatic water balance from 1958--2015}.
+\newblock {\em Sci. Data} {\bf 2018}, {\em 5},~170191.
+\newblock {{https://doi.org/10.1038/sdata.2017.191}}.
+
+\bibitem[Byakatonda \em{et~al.}(2018{\natexlab{a}})Byakatonda, Parida,
+  Kenabatho, and Moalafhi]{Byakatonda2018b}
+Byakatonda, J.; Parida, B.P.; Kenabatho, P.K.; Moalafhi, D.B.
+\newblock {Influence of climate variability and length of rainy season on crop
+  yields in semiarid Botswana}.
+\newblock {\em Agric. For. Meteorol.} {\bf 2018}, {\em
+  248},~130--144.
+\newblock {{https://doi.org/10.1016/j.agrformet.2017.09.016}}.
+
+\bibitem[Byakatonda \em{et~al.}(2018{\natexlab{b}})Byakatonda, Parida,
+  Moalafhi, and Kenabatho]{Byakatonda2018c}
+Byakatonda, J.; Parida, B.P.; Moalafhi, D.B.; Kenabatho, P.K.
+\newblock {Analysis of long term drought severity characteristics and trends
+  across semiarid Botswana using two drought indices}.
+\newblock {\em Atmos. Res.} {\bf 2018}, {\em 213},~492--508.
+\newblock {{https://doi.org/10.1016/j.atmosres.2018.07.002}}.
+
+\bibitem[Ujeneza and Abiodun(2015)]{Ujeneza}
+Ujeneza, E.L.; Abiodun, B.J.
+\newblock {Drought regimes in Southern Africa and how well GCMs simulate them}.
+\newblock {\em Clim. Dyn.} {\bf 2015}, {\em 44},~1595--1609.
+\newblock {{https://doi.org/10.1007/s00382-014-2325-z}}.
+
+\bibitem[Akinyemi and Abiodun(2019)]{AkinyemiAbiodun}
+Akinyemi, F.O.; Abiodun, B.J.
+\newblock {Potential impacts of global warming levels 1.5 °C and above on
+  climate extremes in Botswana}.
+\newblock {\em Clim. Chang.} {\bf 2019}, {\em 154},~387--400.
+\newblock {{https://doi.org/10.1007/s10584-019-02446-1}}.
+
+\bibitem[Palmer(1965)]{Palmer}
+Palmer, W.
+\newblock \emph{Meteorological Drought};
+\newblock Research Paper no. 45, U.S. Department of Commerce Weather Bureau, \hl{58; } %MDPI: Please add the publisher and location. 
+  pp. 1965.
+\newblock \hl{Available online by the NOAA National Climatic Data Center.} %MDPI: Please provide the link an accessed date.
+
+
+\bibitem[Ermel(1966)]{Ermel}
+Ermel, H.
+\newblock {Der deutsche Beitrag zur Neuherstellung der General Bathymetric
+  Chart of the Oceans (GEBCO)}.
+\newblock {\em Dtsch. Hydrogr. Z.} {\bf 1966}, {\em
+  19},~49--57.
+\newblock {{https://doi.org/10.1007/BF02317966}}.
+
+\bibitem[Schenke(2016)]{Schenke2016}
+Schenke, H., {General Bathymetric Chart of the Oceans (GEBCO)}.
+\newblock In {\em {Encyclopedia of Marine Geosciences}}; Springer: Dordrecht,
+  The Netherlands,  2016; pp. 268--269.
+\newblock {{https://doi.org/10.1007/978-94-007-6238-1\_63}}.
+
+\bibitem[Bracke \em{et~al.}(2019)Bracke, Sochacki, and Radetzky]{Bracke}
+Bracke, S.; Sochacki, S.; Radetzky, M.
+\newblock {Multivariate Data Analytics in Surface Topography Assessments: Case
+  Study High Precision Fine Grinding Processes}.
+\newblock {\em Procedia Manuf.} {\bf 2019}, {\em 39},~1752--1761.
+\newblock {{https://doi.org/10.1016/j.promfg.2020.01.264}}.
+
+\bibitem[Smith(1993)]{Smith}
+Smith, W.H.F.
+\newblock {On the accuracy of digital bathymetric data}.
+\newblock {\em J. Geophys. Res.} {\bf 1993}, {\em
+  98},~9591--9603.
+\newblock {{https://doi.org/10.1029/93JB00716}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202211}
+Lemenkova, P.
+\newblock {Mapping Ghana by GMT and R scripting: Advanced cartographic
+  approaches to visualize correlations between the topography, climate and
+  environmental setting}.
+\newblock {\em Adv. Geod. Geoinf.} {\bf 2022}, {\em
+  71},~e16.
+\newblock {{https://doi.org/10.24425/gac.2022.141169}}.
+
+\bibitem[Jakobsson and Macnab(2006)]{Jakobsson}
+Jakobsson, M.; Macnab, R.
+\newblock {A Comparison Between GEBCO Sheet 5.17 and the International
+  Bathymetric Chart of the Arctic Ocean (IBCAO) Version 1.0}.
+\newblock {\em Mar. Geophys. Res.} {\bf 2006}, {\em 27},~35--48.
+\newblock {{https://doi.org/10.1007/s11001-005-7760-0}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202112}
+Lemenkova, P.
+\newblock {Topography of the Aleutian Trench south-east off Bowers Ridge,
+  Bering Sea, in the context of the geological development of North Pacific
+  Ocean}.
+\newblock {\em Baltica} {\bf 2021}, {\em 34},~27--46.
+\newblock {{https://doi.org/10.5200/baltica.2021.1.3}}.
+
+\bibitem[Hall(2006)]{Hall}
+Hall, J.K.
+\newblock {GEBCO Centennial Special Issue -- Charting the Secret World of the
+  Ocean Floor: The GEBCO Project 1903--2003}.
+\newblock {\em Mar. Geophys. Res.} {\bf 2006}, {\em 27},~1--5.
+\newblock {{https://doi.org/10.1007/s11001-006-8181-4}}.
+
+\bibitem[Lemenkova(2020)]{Lemenkova202012}
+Lemenkova, P.
+\newblock {GEBCO Gridded Bathymetric Datasets for Mapping Japan Trench
+  Geomorphology by Means of GMT Scripting Toolset}.
+\newblock {\em Geod. Cartogr.} {\bf 2020}, {\em 46},~98--112.
+\newblock {{https://doi.org/10.3846/gac.2020.11524}}.
+
+\bibitem[Marks and Smith(2006)]{Marks}
+Marks, K.M.; Smith, W.H.F.
+\newblock {An Evaluation of Publicly Available Global Bathymetry Grids}.
+\newblock {\em Mar. Geophys. Res.} {\bf 2006}, {\em 27},~19--34.
+\newblock {{https://doi.org/10.1007/s11001-005-2095-4}}.
+
+\bibitem[Kolawole \em{et~al.}(2014)Kolawole, Wolski, Ngwenya, and
+  Mmopelwa]{Kolawole}
+Kolawole, O.D.; Wolski, P.; Ngwenya, B.; Mmopelwa, G.
+\newblock {Ethno-meteorology and scientific weather forecasting: Small farmers
+  and scientists’ perspectives on climate variability in the Okavango Delta,
+  Botswana}.
+\newblock {\em Clim. Risk Manag.} {\bf 2014}, {\em 4--5},~43--58.
+\newblock {{https://doi.org/10.1016/j.crm.2014.08.002}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202206}
+Lemenkova, P.
+\newblock {Tanzania Craton, Serengeti Plain and Eastern Rift Valley: Mapping of
+  geospatial data by scripting techniques}.
+\newblock {\em Est. J. Earth Sci.} {\bf 2022}, {\em
+  71},~61--79.
+\newblock {{https://doi.org/10.3176/earth.2022.05}}.
+
+\bibitem[Ringrose \em{et~al.}(1996)Ringrose, Chanda, Nkambwe, and
+  Sefe]{Ringrose1996}
+Ringrose, S.; Chanda, R.; Nkambwe, M.; Sefe, F.
+\newblock {Environmental change in the mid-Boteti area of north-central
+  Botswana: Biophysical processes and human perceptions}.
+\newblock {\em Environ. Manag.} {\bf 1996}, {\em 20},~397--410.
+\newblock {{https://doi.org/10.1007/BF01203847}}.
+
+\bibitem[Lindh and Lemenkova(2021)]{Lindh2021a}
+Lindh, P.; Lemenkova, P.
+\newblock {Evaluation of Different Binder Combinations of Cement, Slag and CKD
+  for S/S Treatment of TBT Contaminated Sediments}.
+\newblock {\em Acta Mech. Autom.} {\bf 2021}, {\em 15},~236--248.
+\newblock {{https://doi.org/10.2478/ama-2021-0030}}.
+
+\bibitem[Manisa \em{et~al.}(2016)Manisa, Das, Segobye, and Maphale]{Manisa}
+Manisa, M.; Das, R.K.; Segobye, M.; Maphale, L.
+\newblock {Developing local geoid model to assess accuracy of orthometric
+  heights from GPS-based ellipsoidal heights in Botswana}.
+\newblock {\em Spat. Inf. Res.} {\bf 2016}, {\em 24},~607--616.
+\newblock {{https://doi.org/10.1007/s41324-016-0057-3}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202141}
+Lemenkova, P.
+\newblock {Robust Vegetation Detection Using RGB Colour Composites and Isoclust
+  Classification of the Landsat TM Image}.
+\newblock {\em Geomat. Landmanag. Landsc.} {\bf 2021}, {\em
+  4},~147--167.
+\newblock {{https://doi.org/10.5281/zenodo.6347500}}.
+
+\bibitem[Ringrose \em{et~al.}(1999)Ringrose, Musisi-Nkambwe, Coleman, Nellis,
+  and Bussing]{Ringrose1999}
+Ringrose, S.; Musisi-Nkambwe, S.; Coleman, T.; Nellis, D.; Bussing, C.
+\newblock {Use of Landsat Thematic Mapper Data to Assess Seasonal Rangeland
+  Changes in the Southeast Kalahari, Botswana}.
+\newblock {\em Environ. Manag.} {\bf 1999}, {\em 23},~125--138.
+\newblock {{https://doi.org/10.1007/s002679900173}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202125}
+Lemenkova, P.
+\newblock {Dataset compilation by GRASS GIS for thematic mapping of Antarctica:
+  Topographic surface, ice thickness, subglacial bed elevation and sediment
+  thickness}.
+\newblock {\em Czech Polar Rep.} {\bf 2021}, {\em 11},~67--85.
+\newblock {{https://doi.org/10.5817/CPR2021-1-6}}.
+
+\bibitem[Pachka \em{et~al.}(2016)Pachka, Annelise, Alan, Tshikae, Kgori,
+  Chevalier, Paweska, and Jori]{Pachka}
+Pachka, H.; Annelise, T.; Alan, K.; Tshikae, P.; Kgori, P.; Chevalier, V.;
+  Paweska, J.; Jori, F.
+\newblock {Rift Valley fever vector diversity and impact of meteorological and
+  environmental factors on Culex pipiens dynamics in the Okavango Delta,
+  Botswana}.
+\newblock {\em Parasites Vectors} {\bf 2016}, {\em 9}, \hl{434}.
+\newblock {{https://doi.org/10.1186/s13071-016-1712-1}}.
+
+\bibitem[Pricope(2013)]{Pricope}
+Pricope, N.G.
+\newblock {Variable-source flood pulsing in a semi-arid transboundary
+  watershed: The Chobe River, Botswana and Namibia}.
+\newblock {\em Environ. Monit. Assess.} {\bf 2013}, {\em
+  185},~1883--1906.
+\newblock {{https://doi.org/10.1007/s10661-012-2675-0}}.
+
+\bibitem[Lemenkova(2020)]{Lemenkova202021}
+Lemenkova, P.
+\newblock {Sentinel-2 for High Resolution Mapping of Slope-Based Vegetation
+  Indices Using Machine Learning by SAGA GIS}.
+\newblock {\em Transylv. Rev. Syst. Ecol. Res.}
+  {\bf 2020}, {\em 22},~17--34.
+\newblock {{https://doi.org/10.2478/trser-2020-0015}}.
+
+\bibitem[Virden \em{et~al.}(2004)Virden, Habermann, Glover, Divins, Sharman,
+  and Fox]{Virden}
+Virden, W.; Habermann, T.; Glover, G.; Divins, D.; Sharman, G.; Fox, C.
+\newblock Multibeam bathymetric data at NOAA/NGDC.
+\newblock In Proceedings of the Oceans '04 MTS/IEEE Techno-Ocean '04 (IEEE Cat.
+  No.04CH37600),  \hl{Kobe, Japan, 9--12 November} 2004;  Volume~2; pp. 1159--1162.
+\newblock {{https://doi.org/10.1109/OCEANS.2004.1405673}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202127}
+Lemenkova, P.
+\newblock {Submarine tectonic geomorphology of the Pliny and Hellenic Trenches
+  reflecting geologic evolution of the southern Greece}.
+\newblock {\em Rud.-GeološKo-Naft. Zb.} {\bf 2021}, {\em 36},~33--48.
+\newblock {{https://doi.org/10.17794/rgn.2021.4.4}}.
+
+\bibitem[Senturk \em{et~al.}(2016)Senturk, Cakir, and Berk~Ustundag]{Senturk}
+Senturk, S.; Cakir, Z.; Berk~Ustundag, B.
+\newblock The potential of Sentinel-IA interferometric SAR data in monitoring
+  of surface subsidence caused by overdrafting groundwater in agricultural
+  areas.
+\newblock In Proceedings of the 2016 Fifth International Conference on
+  Agro-Geoinformatics (Agro-Geoinformatics),  \hl{Tianjin, China, 18--20 July} 2016; pp. 1--4.
+\newblock {{https://doi.org/10.1109/Agro-Geoinformatics.2016.7577632}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202017}
+Lemenkova, P.
+\newblock {Using GMT for 2D and 3D Modeling of the Ryukyu Trench Topography,
+  Pacific Ocean}.
+\newblock {\em Misc. Geogr.} {\bf 2021}, {\em 25},~213--225.
+\newblock {{https://doi.org/10.2478/mgrsd-2020-0038}}.
+
+\bibitem[Lindh and Lemenkova(2022)]{Lindh202208}
+Lindh, P.; Lemenkova, P.
+\newblock {Geochemical tests to study the effects of cement ratio on potassium
+  and TBT leaching and the pH of the marine sediments from the Kattegat Strait,
+  Port of Gothenburg, Sweden}.
+\newblock {\em Baltica} {\bf 2022}, {\em 35},~47--59.
+\newblock {{https://doi.org/10.5200/baltica.2022.1.4}}.
+
+\bibitem[Lemenkova(2020)]{Lemenkova202018}
+Lemenkova, P.
+\newblock {Geomorphology of the Puerto Rico Trench and Cayman Trough in the
+  Context of the Geological Evolution of the Caribbean Sea}.
+\newblock {\em Ann. Univ. Mariae-Curie-Sklodowska, Sect. B---Geogr. Geol. Mineral. Petrogr.} {\bf 2020}, {\em
+  75},~115--141.
+\newblock {{https://doi.org/10.17951/b.2020.75.115-141}}.
+
+\bibitem[Shi \em{et~al.}(2009)Shi, Du, Lu, Hu, and Ke]{Shietal2009}
+Shi, H.; Du, Z.; Lu, Y.; Hu, X.; Ke, X.
+\newblock Amery Ice Shelf Digital Elevation Model from GLAS and GMT.
+\newblock In Proceedings of the 2009 Third International Symposium on
+  Intelligent Information Technology Application,  \hl{Nanchang, China, 21--22 November} 2009; Volume~2; pp. 129--133.
+\newblock {{https://doi.org/10.1109/IITA.2009.313}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202213}
+Lemenkova, P.
+\newblock {Mapping submarine geomorphology of the Philippine and Mariana
+  trenches by an automated approach using GMT scripts}.
+\newblock {\em Proc. Latvian Acad. Sci. Sect. B} {\bf 2022}, {\em
+  76},~258--266.
+\newblock {{https://doi.org/10.2478/prolas-2022-0039}}.
+
+\bibitem[Totolo and Mosweu(2012)]{Totolo}
+Totolo, O.; Mosweu, S.
+\newblock {Spatial Variability of Selected Soil Properties in Relation to
+  Different Land Uses in Northern Kgalagadi (Matsheng), Botswana}.
+\newblock {\em Int. J. Geosci.} {\bf 2012}, {\em
+  3},~659--663.
+\newblock {{https://doi.org/10.4236/ijg.2012.34066}}.
+
+\bibitem[Lindh and Lemenkova(2022)]{Lindh202210}
+Lindh, P.; Lemenkova, P.
+\newblock {Seismic velocity of P-waves to evaluate strength of stabilized soil
+  for Svenska Cellulosa Aktiebolaget Biorefinery Östrand AB, Timrå}.
+\newblock {\em Bull. Pol. Acad. Sci. Tech. Sci.}
+  {\bf 2022}, {\em 70},~1--9.
+\newblock {{https://doi.org/10.24425/bpasts.2022.141593}}.
+
+\bibitem[Mosweu \em{et~al.}(2013)Mosweu, Munyati, and Kabanda]{Mosweu}
+Mosweu, S.; Munyati, C.; Kabanda, T.
+\newblock {Modification of soil properties by Prosopis L. in the Kalahari
+  Desert, South-Western Botswana}.
+\newblock {\em Open J. Ecol.} {\bf 2013}, {\em 3},~145--150.
+\newblock {{https://doi.org/10.4236/oje.2013.32017}}.
+
+\bibitem[Lemenkov and Lemenkova(2021)]{Lemenkov202103}
+Lemenkov, V.; Lemenkova, P.
+\newblock {Using TeX Markup Language for 3D and 2D Geological Plotting}.
+\newblock {\em Found. Comput. Decis. Sci.} {\bf 2021}, {\em
+  46},~43--69.
+\newblock {{https://doi.org/10.2478/fcds-2021-0004}}.
+
+\bibitem[Zeilhofer(2006)]{Zeilhofer}
+Zeilhofer, P.
+\newblock {Soil Mapping in the Pantanal of Mato Grosso, Brazil, using
+  Multitemporal Landsat TM data}.
+\newblock {\em Wetl. Ecol. Manag.} {\bf 2006}, {\em 14},~445--461.
+\newblock {{https://doi.org/10.1007/s11273-006-0007-2}}.
+
+\bibitem[McGill \em{et~al.}(2019)McGill, Altchenko, Hamilton, Kenabatho,
+  Sylvester, and Villholth]{McGill}
+McGill, B.M.; Altchenko, Y.; Hamilton, S.K.; Kenabatho, P.K.; Sylvester, S.R.;
+  Villholth, K.G.
+\newblock {Complex interactions between climate change, sanitation, and
+  groundwater quality: A case study from Ramotswa, Botswana}.
+\newblock {\em Hydrogeol. J.} {\bf 2019}, {\em 27},~997--1015.
+\newblock {{https://doi.org/10.1007/s10040-018-1901-4}}.
+
+\bibitem[Maoyi and Abiodun(2021)]{Maoyi}
+Maoyi, M.L.; Abiodun, B.J.
+\newblock {How well does MPAS-atmosphere simulate the characteristics of the
+  Botswana High?}
+\newblock {\em Clim. Dyn.} {\bf 2021}, {\em 57},~2109--2128.
+\newblock {{https://doi.org/10.1007/s00382-021-05797-7}}.
+
+\bibitem[Ramberg \em{et~al.}(2006)Ramberg, Hancock, Lindholm, Meyer, Ringrose,
+  Sliva, {Van As}, and {Vander Post}]{Ramberg2006b}
+Ramberg, L.; Hancock, P.; Lindholm, M.; Meyer, T.; Ringrose, S.; Sliva, J.;
+  {Van As}, J.; {Vander Post}, C.
+\newblock {Species diversity of the Okavango Delta, Botswana}.
+\newblock {\em Aquat. Sci.} {\bf 2006}, {\em 68},~310--337.
+\newblock {{https://doi.org/10.1007/s00027-006-0857-y}}.
+
+\bibitem[Asefa(1991)]{Asefa}
+Asefa, S.
+\newblock {Enhancing food access in Africa: The Botswana experience}.
+\newblock {\em Stud. Comp. Int. Dev.} {\bf 1991},
+  {\em 26},~59--83.
+\newblock {{https://doi.org/10.1007/BF02687175}}.
+
+\bibitem[Vanderpost(1995)]{Vanderpost1995}
+Vanderpost, C.
+\newblock {Population change and environmental problems in the Mid-Boteti
+  region of Botswana}.
+\newblock {\em GeoJournal} {\bf 1995}, {\em 35},~521--529.
+\newblock {{https://doi.org/10.1007/BF00824368}}.
+
+\bibitem[Rahm \em{et~al.}(2006)Rahm, Swatuk, and Matheny]{Rahm}
+Rahm, D.; Swatuk, L.; Matheny, E.
+\newblock {Water Resource Management in Botswana: Balancing Sustainability and
+  Economic Development}.
+\newblock {\em Environ. Dev. Sustain.} {\bf 2006}, {\em
+  8},~157--183.
+\newblock {{https://doi.org/10.1007/s10668-005-2491-6}}.
+
+\bibitem[Mogomotsi \em{et~al.}(2020)Mogomotsi, Sekelemani, and
+  Mogomotsi]{Mogomotsi}
+Mogomotsi, P.K.; Sekelemani, A.; Mogomotsi, G.E.J.
+\newblock {Climate change adaptation strategies of small-scale farmers in
+  Ngamiland East, Botswana}.
+\newblock {\em Clim. Chang.} {\bf 2020}, {\em 159},~441--460.
+\newblock {{https://doi.org/10.1007/s10584-019-02645-w}}.
+
+\bibitem[Moreri \em{et~al.}(2017)Moreri, Maphale, and Nkhwanana]{Moreri}
+Moreri, K.K.; Maphale, L.; Nkhwanana, N.
+\newblock {Optimizing dispatch and home delivery services utilizing GIS in
+  Botswana: Botswana Post case study}.
+\newblock {\em Spat. Inf. Res.} {\bf 2017}, {\em 25},~565--573.
+\newblock {{https://doi.org/10.1007/s41324-017-0123-5}}.
+
+\bibitem[Mpofu \em{et~al.}(2018)Mpofu, Darkoh, and Gwebu]{Mpofu}
+Mpofu, G.; Darkoh, M.K.; Gwebu, T.
+\newblock {Peri-urbanization landuse dynamics: An analysis of evolving patterns
+  and their impacts on Gabane Village, Botswana}.
+\newblock {\em GeoJournal} {\bf 2018}, {\em 83},~725--741.
+\newblock {{https://doi.org/10.1007/s10708-017-9798-3}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202203}
+Lemenkova, P.
+\newblock {Console-Based Mapping of Mongolia Using GMT Cartographic Scripting
+  Toolset for Processing TerraClimate Data}.
+\newblock {\em Geosciences} {\bf 2022}, {\em 12},~1--36.
+\newblock {{https://doi.org/10.3390/geosciences12030140}}.
+
+\bibitem[Ramberg \em{et~al.}(2006)Ramberg, Wolski, and Krah]{Ramberg2006a}
+Ramberg, L.; Wolski, P.; Krah, M.
+\newblock {Water balance and infiltration in a seasonal floodplain in the
+  Okavango Delta, Botswana}.
+\newblock {\em Wetlands} {\bf 2006}, {\em 26},~677--690.
+\newblock
+  {{https://doi.org/10.1672/0277-5212(2006)26[677:WBAIIA]2.0.CO;2}}.
+
+\bibitem[Lancaster(2022)]{LANCASTER2022318}
+Lancaster, N.
+\newblock 9.14 - Response of Aeolian Processes and Landforms to Climate Change
+  and Variability. In {\em Treatise on Geomorphology (Second Edition)}, 2nd ed.;
+  Shroder, J.J.F., Ed.; Academic Press: Oxford,  UK, 2022; pp. 318--339.
+\newblock
+  {{https://doi.org/10.1016/B978-0-12-818234-5.00071-7}}.
+
+\bibitem[Radulović \em{et~al.}(2022)Radulović, Brdar, Mesaroš, Lukić,
+  Savić, Basarin, Crnojević, and Pavić]{ijgi11040257}
+Radulović, M.; Brdar, S.; Mesaroš, M.; Lukić, T.; Savić, S.; Basarin, B.;
+  Crnojević, V.; Pavić, D.
+\newblock Assessment of Groundwater Potential Zones Using GIS and Fuzzy AHP
+  Techniques---A Case Study of the Titel Municipality (Northern Serbia).
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2022}, {\em  11}, \hl{257}.
+\newblock {{https://doi.org/10.3390/ijgi11040257}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202140}
+Lemenkova, P.
+\newblock {Geophysical Mapping of Ghana Using Advanced Cartographic Tool GMT}.
+\newblock {\em Kartogr. Geoinf.} {\bf 2021}, {\em 20},~16--37.
+\newblock {{https://doi.org/10.32909/kg.20.36.2}}.
+
+\bibitem[Karydas and Jiang(2020)]{ijgi9110631}
+Karydas, C.; Jiang, B.
+\newblock Scale Optimization in Topographic and Hydrographic Feature Mapping
+  Using Fractal Analysis.
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2020}, {\em  9}, \hl{631}.
+\newblock {{https://doi.org/10.3390/ijgi9110631}}.
+
+\bibitem[Akinyemi and Kgomo(2019)]{AkinyemiKgomo}
+Akinyemi, F.O.; Kgomo, M.O.
+\newblock {Vegetation dynamics in African drylands: An assessment based on the
+  Vegetation Degradation Index in an agro-pastoral region of Botswana}.
+\newblock {\em Reg. Environ. Chang.} {\bf 2019}, {\em 19},~2027--2039.
+\newblock {{https://doi.org/10.1007/s10113-019-01541-4}}.
+
+\bibitem[Ishimoto \em{et~al.}(2018)Ishimoto, Yabuta, Kgokong, Motsepe,
+  Tominaga, Teramoto, Konaka, Mmopelwa, Kawamitsu, Akashi, and Ueno]{Ishimoto}
+Ishimoto, Y.; Yabuta, S.; Kgokong, S.; Motsepe, M.; Tominaga, J.; Teramoto, S.;
+  Konaka, T.; Mmopelwa, G.; Kawamitsu, Y.; Akashi, K.;  et~al.
+\newblock {Environmental evaluation with greenhouse gas emissions and
+  absorption based on life cycle assessment for a Jatropha cultivation system
+  in frost- and drought-prone regions of Botswana}.
+\newblock {\em Biomass Bioenergy} {\bf 2018}, {\em 110},~33--40.
+\newblock {{https://doi.org/10.1016/j.biombioe.2017.12.026}}.
+
+\bibitem[Klaučo \em{et~al.}(2013)Klaučo, Gregorová, Stankov, Marković, and
+  Lemenkova]{Klauco2013}
+Klaučo, M.; Gregorová, B.; Stankov, U.; Marković, V.; Lemenkova, P.
+\newblock {Determination of ecological significance based on geostatistical
+  assessment: A case study from the Slovak Natura 2000 protected area}.
+\newblock {\em Open Geosci.} {\bf 2013}, {\em 5},~28--42.
+\newblock {{https://doi.org/10.2478/s13533-012-0120-0}}.
+
+\bibitem[Eze \em{et~al.}(2019)Eze, Madani, and Adoko]{Eze}
+Eze, P.N.; Madani, N.; Adoko, A.C.
+\newblock {Multivariate Mapping of Heavy Metals Spatial Contamination in a
+  Cu--Ni Exploration Field (Botswana) Using Turning Bands Co-simulation
+  Algorithm}.
+\newblock {\em Nat. Resour. Res.} {\bf 2019}, {\em 28},~109--124.
+\newblock {{https://doi.org/10.1007/s11053-018-9378-3}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202212}
+Lemenkova, P.
+\newblock {Handling Dataset with Geophysical and Geological Variables on the
+  Bolivian Andes by the GMT Scripts}.
+\newblock {\em Data} {\bf 2022}, {\em 7},~74.
+\newblock {{https://doi.org/10.3390/data7060074}}.
+
+\bibitem[Chipanshi \em{et~al.}(2003)Chipanshi, Chanda, and Totolo]{Chipanshi}
+Chipanshi, A.C.; Chanda, R.; Totolo, O.
+\newblock {Vulnerability Assessment of the Maize and Sorghum Crops to Climate
+  Change in Botswana}.
+\newblock {\em Clim. Chang.} {\bf 2003}, {\em 61},~339--360.
+\newblock {{https://doi.org/10.1023/B:CLIM.0000004551.55871.eb}}.
+
+\bibitem[Klaučo \em{et~al.}(2017)Klaučo, Gregorová, Koleda, Stankov,
+  Marković, and Lemenkova]{Klauco2017}
+Klaučo, M.; Gregorová, B.; Koleda, P.; Stankov, U.; Marković, V.; Lemenkova,
+  P.
+\newblock {Land planning as a support for sustainable development based on
+  tourism: A case study of Slovak Rural Region}.
+\newblock {\em Environ. Eng. Manag. J.} {\bf 2017},
+  {\em 16},~449--458.
+\newblock {{https://doi.org/10.30638/eemj.2017.045}}.
+
+\bibitem[Maruatona and Moses(2022)]{Maruatona}
+Maruatona, P.B.; Moses, O.
+\newblock {Assessment of the onset, cessation, and duration of rainfall season
+  over Botswana}.
+\newblock {\em Model. Earth Syst. Environ.} {\bf 2022}, {\em
+  8},~1657--1668.
+\newblock {{https://doi.org/10.1007/s40808-021-01178-5}}.
+
+\bibitem[Parida and Moalafhi(2008)]{PARIDA2008614}
+Parida, B.; Moalafhi, D.
+\newblock Regional rainfall frequency analysis for Botswana using L-Moments and
+  radial basis function network.
+\newblock {\em Phys. Chem. Earth Parts A/B/C} {\bf 2008},
+  {\em 33},~614--620.
+%\newblock Integrated Water Resources Management---From Concept to Practice,
+  {{https://doi.org/10.1016/j.pce.2008.06.011}}.
+
+\bibitem[Moses and Ramotonto(2018)]{MOSES2018102}
+Moses, O.; Ramotonto, S.
+\newblock Assessing forecasting models on prediction of the tropical cyclone
+  Dineo and the associated rainfall over Botswana.
+\newblock {\em Weather. Clim. Extrem.} {\bf 2018}, {\em 21},~102--109.
+\newblock {{https://doi.org/10.1016/j.wace.2018.07.004}}.
+
+\bibitem[Dahlberg(2000)]{DAHLBERG200019}
+Dahlberg, A.C.
+\newblock Vegetation diversity and change in relation to land use, soil and
+  rainfall — a case study from North-East District, Botswana.
+\newblock {\em J. Arid. Environ.} {\bf 2000}, {\em 44},~19--40.
+\newblock {{https://doi.org/10.1006/jare.1999.0566}}.
+
+\end{thebibliography}
+
+\end{adjustwidth}
+
+% Please provide either the correct journal abbreviation (e.g., according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+% Citations and References in Supplementary files are permitted provided that they also appear in the reference list here. 
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+%\bibliography{Botswana.bib}
+%\nocite*{}
+
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
